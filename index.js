@@ -58,7 +58,7 @@ mongoose.connect(uri,{
     .then(()=> console.log('Base de datos conectada'))
     .catch(e => console.log(e))
 
-//con esto escuchamos el puerto 3000
+//con esto escuchamos el puerto 3005
 app.listen(port, () => {
     console.log('Mi port ' + port);
 });
