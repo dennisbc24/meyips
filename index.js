@@ -13,7 +13,7 @@ const routerApi = require('./routers');
 //este middleware sirve para que la respuesta del post sea con la data mas
 app.use(express.json());
 
-/* const whitelist = ['http://127.0.0.1:5555', 'http://127.0.0.1:5500', 'http://maxicusco.net', 'http://127.0.0.1'];
+const whitelist = ['http://127.0.0.1:5555', 'http://127.0.0.1:5500', 'http://maxicusco.net', 'http://127.0.0.1', 'https://dry-plateau-16443.herokuapp.com'];
 const options = {
     origin: (origin, callback) => {
         if(whitelist.includes(origin) || !origin) {
@@ -22,11 +22,11 @@ const options = {
             callback(new Error('no permitido'));
         }
     }
-} */
+}
 
-app.use(cors());
+//app.use(cors());
 
-//app.use(cors(options));
+app.use(cors(options));
 
 //esto es para que la imagen subida quede con su nombre de origen
 const storage = multer.diskStorage({
