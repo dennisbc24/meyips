@@ -13,7 +13,7 @@ const routerApi = require('./routers');
 //este middleware sirve para que la respuesta del post sea con la data mas
 app.use(express.json());
 
-const whitelist = ['http://127.0.0.1:5555', 'http://127.0.0.1:5500', 'http://maxicusco.net', 'http://127.0.0.1', 'https://dry-plateau-16443.herokuapp.com'];
+const whitelist = ['http://127.0.0.1:5555', 'http://127.0.0.1:5501','http://127.0.0.1:5500', 'http://maxicusco.net', 'http://127.0.0.1', 'https://dry-plateau-16443.herokuapp.com'];
 const options = {
     origin: (origin, callback) => {
         if(whitelist.includes(origin) || !origin) {
@@ -47,7 +47,7 @@ app.use(logError);
 app.use(errorBoomHandler);
 app.use(errorHandler);
 
-const mongoose = require('mongoose');
+/* const mongoose = require('mongoose');
 
 const user = 'dennis_prueba';
 const password = 'xEYFUZVdPUqXvBMG';
@@ -58,7 +58,7 @@ mongoose.Promise = global.Promise;
 mongoose.connect(uri,{
     useNewUrlParser: true, useUnifiedTopology: true})
     .then(()=> console.log('Base de datos conectada'))
-    .catch(e => console.log(e))
+    .catch(e => console.log(e)) */
 
 //con esto escuchamos el puerto 3005
 app.listen(port, () => {

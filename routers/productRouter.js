@@ -9,20 +9,20 @@ const Product =require('../modelMongo/product');
 const ProductService = require('../services/product.service');
 const service = new ProductService();
 
-/* router.get('/', async(req, res) => {
+router.get('/', async(req, res) => {
     const products = await service.find();
     res.json(products);
 })
- */
+
 //mongo
-router.get('/', async(req, res) => {
+/* router.get('/', async(req, res) => {
   try {
     const arrayProductDB = await Product.find()
     res.json(arrayProductDB)
   } catch (err) {
     console.log(err);
   }
-})
+}) */
 
 router.get('/:id', schemaHandler(getProductSchema, 'params'), async (req, res, next) => {
   try {
@@ -39,18 +39,20 @@ router.get('/filter', (req,res) => {
     res.send('yo soy un filter');
   });
 
-router.post('/'   , schemaHandler(createProductSchema, 'body'), async (req, res, next) => {
+router.post('/', schemaHandler(createProductSchema, 'body'), async (req, res, next) => {
   try {
-    const arrayProductDB = await Product.create(req.body);
+    //const arrayProductDB = await service.create(req.body);
+    const arrayProductDB = service.create(req.body)
     res.json(arrayProductDB);
+
   } catch(e){
     next(e)
   }
-  
+
 }
 )
 
-router.patch('/:id', 
+router.patch('/:id',
 schemaHandler(getProductSchema, 'params'),
 schemaHandler(updateProductSchema, 'body'),
 async (req, res) => {
@@ -66,7 +68,7 @@ async (req, res) => {
       message: error.message
     })
   }
-    
+
   })
 
 router.delete('/:id',schemaHandler(getProductSchema, 'params'), async (req, res, next) => {
@@ -75,11 +77,11 @@ router.delete('/:id',schemaHandler(getProductSchema, 'params'), async (req, res,
     const product = await Product.findByIdAndRemove(id);
 
     res.json(id)
-    
+
   } catch(e){
     next(e)
   }
-  
+
 });
 
 
