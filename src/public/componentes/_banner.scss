@@ -1,0 +1,44 @@
+.banner {
+    
+    @include borde1;
+    aspect-ratio: 16 / 9;
+    min-height: 150px;
+   
+    border-radius: 15px;
+    width: 95%;
+    margin: 0 14px 0 10px;
+    background-size: 100%;
+    background-image: url(img/banner/1.jpg);
+    animation-name: game;
+    animation-duration: 14s;
+    animation-iteration-count: infinite;
+    animation-delay: 2s;
+    transition-timing-function: ease-in;
+   }
+@keyframes game{
+   0% {
+    background-image: url(img/banner/1.jpg);
+    
+   }
+   
+   20% {
+    background-image: url(img/banner/2.jpg);
+   }
+   45% {
+    background-image: url(img/banner/3.jpg);
+   }
+   70% {
+    background-image: url(img/banner/7.jpg);
+   }
+   100% {
+    background-image: url(img/banner/8.jpg);
+   }
+   
+    
+}
+
+
+
+   
+
+
