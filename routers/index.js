@@ -7,6 +7,7 @@ function routerApi(app)
 
 {
     const router = express.Router();
+    app.use('view engine', 'pug')
     app.use('/api/v1', router)
         router.use('/', homeRouter);
         router.use('/products', productsRouter);
