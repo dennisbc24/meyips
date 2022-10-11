@@ -1,0 +1,61 @@
+body{
+    height: 100vh;
+}
+main{
+    height: auto;
+    display: flex;
+   
+
+}
+.banner {
+    
+  
+    width: auto;
+    min-height: 78px;
+    max-height: 91px;
+    
+   }
+#articulos{
+    margin-right: 1%;
+    order: 1;
+    height: 66.5vh;
+    min-width: 40vw;
+    overflow-y: scroll;
+    overscroll-behavior-y: contain;
+    scroll-snap-type: y proximity;
+}
+.calltoaction{
+    img{
+        width: 20px;
+        height: 20px;
+        }
+  }
+  @media (min-width:550px) {
+
+    #articulos{
+      margin-right: 10%;
+      
+      
+  }
+}    
+  @media (min-width:700px) {
+
+    #articulos{
+      margin-right: 25%;
+      
+      
+    }
+    .banner {
+    
+  
+    width: auto;
+    min-height: 230px;
+    max-height: 250px;
+    
+   }
+}  
+    
+    
+    
+    
+

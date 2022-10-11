@@ -3,11 +3,16 @@ const express = require('express');
 const multer = require('multer');
 const cors = require('cors');
 const app = express();
+const path = require('path');
 const port = process.env.PORT || 3000;
 
 const {logError,errorHandler, errorBoomHandler} = require('./middlewares/error.handler')
-
+//donde va a encontrar los archivos estaticos
+app.use(express.static('dennis'));
 //aqui se ejecuta todos los routers
+
+console.log(`${__dirname}/dennis`);
+//app.set('views', path.join(__dirname, './views'));
 const routerApi = require('./routers');
 
 //este middleware sirve para que la respuesta del post sea con la data mas

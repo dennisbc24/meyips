@@ -1,0 +1,25 @@
+header {
+    background: linear-gradient(90.07deg, $Color1 0.42%, $Color-medio 47.66%, $Color2 103.07%);
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 10px;
+    .logo{ 
+        display: flex;
+        align-items: center;
+        img {
+            margin-right: 5px;
+            height: 24px;
+        }
+        h1 {
+            color: $Color-claro;
+            font-family: $Fuente1;
+            font-weight: 500;
+            font-size: 1.6rem;
+            }
+        }
+    .menu img {
+        height: 16px;
+    }
+}
