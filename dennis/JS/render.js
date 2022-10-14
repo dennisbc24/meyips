@@ -12,7 +12,7 @@
     namesValue = [].map.call(carac, function(dataInput){
       arrayCarac.push(dataInput.value);
     })
-    
+
     const imagen = document.getElementById('imageInput')
     console.log(imagen);
 
@@ -41,7 +41,7 @@
     }
 }
 
-//metodo get
+//metodo get desde el frontend
          function traer(){
           window
           .fetch(url)
@@ -55,7 +55,7 @@
 
                 const detalles = document.createElement('div');
                 detalles.className = 'detalles'
-        
+
                   const title = document.createElement('p');
                   title.textContent = elemento.name;
                   const price = document.createElement('h1');
@@ -63,16 +63,16 @@
                   const caracteristicas = document.createElement('div');
                   caracteristicas.className = 'caracteristicas'
                   const arrayCaracteristicas = elemento.caracteristicas;
-                  
+
                   arrayCaracteristicas.forEach(item => {
                     const itemList = document.createElement('p');
                     itemList.textContent = item;
                     caracteristicas.append(itemList)
-                    
+
                   })
-                  
+
                   detalles.append(title,price,caracteristicas);
-                
+
                 const callToAction = document.createElement('div');
                 callToAction.className = 'calltoaction';
                   const link = document.createElement('a');
@@ -81,45 +81,111 @@
                       const contact = document.createElement('p');
                       contact.textContent = 'Contactar';
                       const icon = document.createElement('img');
-                      icon.src = './icons/whatsapp3.png';
+                      icon.src = '/icons/whatsapp3.png';
                       icon.alt = 'icono de Whatsapp'
                     wsp.append(contact,icon);
                   link.append(wsp);
                 callToAction.append(link);
 
-                
+
                 container.append(imagen, detalles, callToAction);
                 container.className = 'articulos__container';
-        
+
                 todosLosElementos.push(container);
               });
               const cajaGrande = document.getElementById('articulos');
               cajaGrande.append(...todosLosElementos);
-              masonryLayout(document.getElementById('articulos'), document.querySelectorAll('.articulos__container'), 2)
+             //masonryLayout(document.getElementById('articulos'), document.querySelectorAll('.articulos__container'), 2)
             });
         };
 
-        traer();
+traer();
 
-        const masonryLayout = (containerElem,itemsElems,columns) => {
-          
-          containerElem.classList.add('masonry-layout', `columns-${columns}`)
-          let columnsElements = []
-        
-          for (let i = 1; i <= columns; i++) {
-              let column = document.createElement('div')
-              column.classList.add('masonry-column', `column-${i}`)
-              containerElem.appendChild(column)
-              columnsElements.push(column)    
-          }
-        
-          for(let m = 0; m < Math.ceil(itemsElems.length / columns); m++){
-              for(let n = 0; n < columns; n++) {
-                  let item = itemsElems[m * columns + n]
-                  columnsElements[n].appendChild(item)
-                  item.classList.add('masonry-item')
-              }
-          }
-        }
+//metodo get desde backend
+function simularGet(){
+  window
+  .fetch(url)
+    .then((respuesta)=> respuesta.json())
+    .then((responseJson)=>{
+      const todosLosElementos = [];
+      responseJson.forEach((elemento) => {
+        const container = document.createElement('article');
+        const imagen = document.createElement('img');
+        imagen.src = elemento.imageUrl;
 
-          
+        const detalles = document.createElement('div');
+        detalles.className = 'detalles'
+
+          const title = document.createElement('p');
+          title.textContent = elemento.name;
+          const price = document.createElement('h1');
+          price.textContent = elemento.price;
+          const caracteristicas = document.createElement('div');
+          caracteristicas.className = 'caracteristicas'
+          const arrayCaracteristicas = elemento.caracteristicas;
+
+          arrayCaracteristicas.forEach(item => {
+            const itemList = document.createElement('p');
+            itemList.textContent = item;
+            caracteristicas.append(itemList)
+
+          })
+
+          detalles.append(title,price,caracteristicas);
+
+        const callToAction = document.createElement('div');
+        callToAction.className = 'calltoaction';
+          const link = document.createElement('a');
+            const wsp = document.createElement('div');
+            wsp.className = 'wsp';
+              const contact = document.createElement('p');
+              contact.textContent = 'Contactar';
+              const icon = document.createElement('img');
+              icon.src = './icons/whatsapp3.png';
+              icon.alt = 'icono de Whatsapp'
+            wsp.append(contact,icon);
+          link.append(wsp);
+        callToAction.append(link);
+
+
+        container.append(imagen, detalles, callToAction);
+        container.className = 'articulos__container';
+
+        todosLosElementos.push(container);
+      });
+      const cajaGrande = document.getElementById('articulos');
+      cajaGrande.append(...todosLosElementos);
+      masonryLayout(document.getElementById('articulos'), document.querySelectorAll('.articulos__container'), 2)
+    });
+};
+
+//prueba de get desde backend
+/* const ProductService = require('../../services/product.service');
+const service = new ProductService();
+
+async function foo() {
+  const products = await service.find();
+  console.log(products);
+} */
+
+const masonryLayout = (containerElem,itemsElems,columns) => {
+
+  containerElem.classList.add('masonry-layout', `columns-${columns}`)
+  let columnsElements = []
+
+  for (let i = 1; i <= columns; i++) {
+      let column = document.createElement('div')
+      column.classList.add('masonry-column', `column-${i}`)
+      containerElem.appendChild(column)
+      columnsElements.push(column)
+  }
+
+  for(let m = 0; m < Math.ceil(itemsElems.length / columns); m++){
+      for(let n = 0; n < columns; n++) {
+          let item = itemsElems[m * columns + n]
+          columnsElements[n].appendChild(item)
+          item.classList.add('masonry-item')
+      }
+  }
+}
+

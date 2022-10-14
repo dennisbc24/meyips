@@ -24,7 +24,7 @@ class ProductService {
                 name: faker.commerce.productName(),
                 price: parseInt(faker.commerce.price(), 10),
                 caracteristicas: ["hola", "como", "estan"],
-                imageUrl: './images/roperoazul.jpg',
+                imageUrl: '/images/roperoazul.jpg',
                 //este es un ejemplo para utlizar otro tipo status code en error
                 inBlock: faker.datatype.boolean(),
             })
