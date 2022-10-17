@@ -50,6 +50,7 @@
               const todosLosElementos = [];
               responseJson.forEach((elemento) => {
                 const container = document.createElement('article');
+                container.id = elemento.id;
                 const imagen = document.createElement('img');
                 imagen.src = elemento.imageUrl;
                 const detalles = document.createElement('div');
@@ -88,13 +89,6 @@
 
                 const cajaGrande = document.getElementById('articulos');
               cajaGrande.append(...todosLosElementos);
-              
-                    
-              
-                  
-                    
-              
-
 
               });
               /* const articulos = document.getElementById('articulos')
@@ -104,7 +98,7 @@
 
               for (let index = 0; index < Math.ceil(articulosItem.length / 2); index++) {
                 const element = array[index];
-                
+
               }
 
               layoutBox.append(...articulosItem)
@@ -114,7 +108,7 @@
      }
 
 
-        
+
 
 
 const masonryLayout = (containerElem,itemsElems,columns) => {
@@ -191,7 +185,7 @@ const masonryLayout = (containerElem,itemsElems,columns) => {
 
 
         container.append(imagen, detalles, callToAction);
-        
+
         container.className = 'articulos__container';
 
         todosLosElementos.push(container);

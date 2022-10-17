@@ -33,7 +33,7 @@ router.get('/:id', schemaHandler(getProductSchema, 'params'), async (req, res, n
     const { id } = req.params;
     const product = await Product.findById(id);
     res.json(product);
-    
+
   } catch (err) {
     next(err)
   }
@@ -57,7 +57,7 @@ router.post('/', schemaHandler(createProductSchema, 'body'), async (req, res, ne
 router.post('/upload', (req, res) => {
   console.log(req.file);
   res.render('index');
-  
+
 })
 
 router.patch('/:id',
@@ -83,10 +83,10 @@ router.delete('/:id',schemaHandler(getProductSchema, 'params'), async (req, res,
   try {
     const { id } = req.params;
     const product = await service.delete(id);
-    const publicPath = __dirname;
-    const direccion = `${publicPath}/dennis/images/ropero3.jpg`
-    console.log(direccion);
-    unlink(path.resolve(direccion))
+    const publicPath = __dirname.replace('routers', 'dennis');;
+    const direccion = `${publicPath}/images/whatsapp-1.png`
+    console.log(req.params);
+    //unlink(path.resolve(direccion))
     res.json(id)
 
   } catch(e){
