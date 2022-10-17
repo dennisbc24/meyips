@@ -11,14 +11,13 @@ const {logError,errorHandler, errorBoomHandler} = require('./middlewares/error.h
 app.use(express.static('dennis'));
 //aqui se ejecuta todos los routers
 
-console.log(`${__dirname}/dennis`);
 //app.set('views', path.join(__dirname, './views'));
 const routerApi = require('./routers');
 
 //este middleware sirve para que la respuesta del post sea con la data mas
 app.use(express.json());
 
-const whitelist = ['http://127.0.0.1:5555', 'http://127.0.0.1:5501','http://127.0.0.1:5500', 'http://maxicusco.net', 'http://127.0.0.1', 'https://dry-plateau-16443.herokuapp.com'];
+const whitelist = ['http://127.0.0.1:5555','http://127.0.0.1:5501','http://127.0.0.1:5500', 'http://maxicusco.net', 'http://127.0.0.1', 'https://dry-plateau-16443.herokuapp.com'];
 const options = {
     origin: (origin, callback) => {
         if(whitelist.includes(origin) || !origin) {
@@ -29,21 +28,24 @@ const options = {
     }
 }
 
-//app.use(cors());
+app.use(cors());
 
-app.use(cors(options));
+//app.use(cors(options));
 
 //esto es para que la imagen subida quede con su nombre de origen
 const storage = multer.diskStorage({
-    destination: 'src/public/images',
+    destination: 'dennis/images',
     filename: (req, file, callback) => {
         callback(null, file.originalname);
     }
 });
 
+const publicPath = __dirname;
+const direccion = `${publicPath}/dennis/images`
+console.log(direccion);
 app.use(multer({
     storage: storage,
-    dest: 'src/public/images'
+    dest: 'dennis/images'
 }).single('foto'));
 
 routerApi(app);

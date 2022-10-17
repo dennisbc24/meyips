@@ -52,57 +52,99 @@
                 const container = document.createElement('article');
                 const imagen = document.createElement('img');
                 imagen.src = elemento.imageUrl;
-
                 const detalles = document.createElement('div');
                 detalles.className = 'detalles'
-
-                  const title = document.createElement('p');
-                  title.textContent = elemento.name;
-                  const price = document.createElement('h1');
-                  price.textContent = elemento.price;
-                  const caracteristicas = document.createElement('div');
-                  caracteristicas.className = 'caracteristicas'
-                  const arrayCaracteristicas = elemento.caracteristicas;
-
-                  arrayCaracteristicas.forEach(item => {
-                    const itemList = document.createElement('p');
-                    itemList.textContent = item;
-                    caracteristicas.append(itemList)
-
-                  })
-
-                  detalles.append(title,price,caracteristicas);
-
+                const title = document.createElement('p');
+                title.textContent = elemento.name;
+                const price = document.createElement('h1');
+                price.textContent = elemento.price;
+                const caracteristicas = document.createElement('div');
+                caracteristicas.className = 'caracteristicas'
+                const arrayCaracteristicas = elemento.caracteristicas;
+                arrayCaracteristicas.forEach(item => {
+                  const itemList = document.createElement('p');
+                  itemList.textContent = item;
+                  caracteristicas.append(itemList)
+                    })
+                detalles.append(title,price,caracteristicas);
                 const callToAction = document.createElement('div');
                 callToAction.className = 'calltoaction';
-                  const link = document.createElement('a');
-                    const wsp = document.createElement('div');
-                    wsp.className = 'wsp';
-                      const contact = document.createElement('p');
-                      contact.textContent = 'Contactar';
-                      const icon = document.createElement('img');
-                      icon.src = '/icons/whatsapp3.png';
-                      icon.alt = 'icono de Whatsapp'
-                    wsp.append(contact,icon);
-                  link.append(wsp);
+                const link = document.createElement('a');
+                const wsp = document.createElement('div');
+                wsp.className = 'wsp';
+                const contact = document.createElement('p');
+                contact.textContent = 'Contactar';
+                const icon = document.createElement('img');
+                icon.src = '/icons/whatsapp3.png';
+                icon.alt = 'icono de Whatsapp'
+                wsp.append(contact,icon);
+                link.append(wsp);
                 callToAction.append(link);
-
-
                 container.append(imagen, detalles, callToAction);
                 container.className = 'articulos__container';
-
+                container.classList.add = 'column-1';
                 todosLosElementos.push(container);
-              });
-              const cajaGrande = document.getElementById('articulos');
-              cajaGrande.append(...todosLosElementos);
-             masonryLayout(document.getElementById('articulos'), document.querySelectorAll('.articulos__container'), 2)
-            });
-        };
 
-traer();
+
+                const cajaGrande = document.getElementById('articulos');
+              cajaGrande.append(...todosLosElementos);
+              
+                    
+              
+                  
+                    
+              
+
+
+              });
+              /* const articulos = document.getElementById('articulos')
+              const articulosItem = document.getElementsByClassName('articulos__container')
+              const layoutBox = document.createElement('div')
+              layoutBox.className = 'layoutBox'
+
+              for (let index = 0; index < Math.ceil(articulosItem.length / 2); index++) {
+                const element = array[index];
+                
+              }
+
+              layoutBox.append(...articulosItem)
+              articulos.appendChild(layoutBox)
+                         */
+            })
+     }
+
+
+        
+
+
+const masonryLayout = (containerElem,itemsElems,columns) => {
+
+  containerElem.classList.add('masonry-layout', `columns-${columns}`)
+  let columnsElements = []
+
+  for (let i = 1; i <= columns; i++) {
+      let column = document.createElement('div')
+      column.classList.add('masonry-column', `column-${i}`)
+      containerElem.appendChild(column)
+      columnsElements.push(column)
+  }
+
+  for(let m = 0; m < Math.ceil(itemsElems.length / columns); m++){
+      for(let n = 0; n < columns; n++) {
+          let item = itemsElems[m * columns + n]
+          columnsElements[n].appendChild(item)
+          item.classList.add('masonry-item')
+      }
+  }
+}
+ traer();
+
+
+//masonryLayout(document.getElementById('articulos'), document.querySelectorAll('.articulos__container'), 2)
+
 
 //metodo get desde backend
-function simularGet(){
+/* function simularGet(){
   window
   .fetch(url)
     .then((respuesta)=> respuesta.json())
@@ -149,7 +191,7 @@ function simularGet(){
 
 
         container.append(imagen, detalles, callToAction);
-        debugger;
+        
         container.className = 'articulos__container';
 
         todosLosElementos.push(container);
@@ -158,7 +200,7 @@ function simularGet(){
       cajaGrande.append(...todosLosElementos);
       masonryLayout(document.getElementById('articulos'), document.querySelectorAll('.articulos__container'), 2)
     });
-};
+}; */
 
 //prueba de get desde backend
 /* const ProductService = require('../../services/product.service');
@@ -168,25 +210,3 @@ async function foo() {
   const products = await service.find();
   console.log(products);
 } */
-
-const masonryLayout = (containerElem,itemsElems,columns) => {
-
-  containerElem.classList.add('masonry-layout', `columns-${columns}`)
-  let columnsElements = []
-
-  for (let i = 1; i <= columns; i++) {
-      let column = document.createElement('div')
-      column.classList.add('masonry-column', `column-${i}`)
-      containerElem.appendChild(column)
-      columnsElements.push(column)
-  }
-
-  for(let m = 0; m < Math.ceil(itemsElems.length / columns); m++){
-      for(let n = 0; n < columns; n++) {
-          let item = itemsElems[m * columns + n]
-          columnsElements[n].appendChild(item)
-          item.classList.add('masonry-item')
-      }
-  }
-}
-

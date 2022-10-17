@@ -149,9 +149,9 @@ main {
 	display: -ms-grid;
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
-	grid-gap: 4px;
+	grid-gap: 4px;	
 	width: 100%;
-	margin: 10px 10px 10px 10px;
+	margin: 0 auto;
 	border-radius: 15px;
 }
 
@@ -159,8 +159,8 @@ main {
 	padding: 6px;
 	margin: 10px 10px 10px 0px;
 	background-color: white;
+	justify-content: center;
 
-					justify-content: center;
 }
 .articulos__container .detalles {
 	padding-left: 4px;

@@ -1,8 +1,6 @@
 const url = "http://localhost:3000/api/v1/products";
+const urlUpload = "http://localhost:3000/api/v1/products/upload";
 
-async function prueba(){
-alert('HOLA MUNDO')
-}
 // metodo post
   async function createProduct2() {
 
@@ -22,7 +20,7 @@ alert('HOLA MUNDO')
       name: nombre.value,
       price: precio.value,
       caracteristicas: arrayCarac,
-      imageUrl: imagen.value
+      imageUrl: '/images/roperoazul.jpg'
     }
     console.log(productoNuevo);
     const res = await fetch(url, {
@@ -42,11 +40,22 @@ alert('HOLA MUNDO')
     }
 }
 //subimos la imagen
+
+async function subirImagenTest(){
+  const form = document.getElementById('uploadImage')
+  const formData = new FormData(form);
+  
+  const res = await fetch(urlUpload, {
+    method: 'POST',
+    body: formData
+  })
+}
+
 async function subirImagen() {
   const form = document.getElementById('uploadImage')
   const formData = new FormData(form);
 
-  async function createProduct3() {
+  async function createProduct() {
 
     const nombre = document.getElementById('nameInput')
     const precio = document.getElementById('priceInput')
@@ -56,14 +65,14 @@ async function subirImagen() {
     namesValue = [].map.call(carac, function(dataInput){
       arrayCarac.push(dataInput.value);
     })
-
     const imagen = document.getElementById('imageInput')
-    console.log(imagen);
-
+    //console.log(imagen);
+    
+    
     const objetoImage = formData.get('foto');
-    console.log(objetoImage);
-    const urlArmada = `./images/${objetoImage.name}`
-    console.log(urlArmada);
+    //console.log(objetoImage);
+    const urlArmada = `/images/${objetoImage.name}`
+    //console.log(urlArmada);
 
     const productoNuevo = {
       name: nombre.value,
@@ -71,7 +80,9 @@ async function subirImagen() {
       caracteristicas: arrayCarac,
       imageUrl: urlArmada
     }
-    console.log(productoNuevo);
+
+    //console.log(productoNuevo);
+
     const res = await fetch(url, {
       method: 'POST',
       headers: {
@@ -79,24 +90,27 @@ async function subirImagen() {
       },
       body: JSON.stringify(productoNuevo)
   });
+
   const data = await res.json()
 
     console.log('save')
-    console.log(res)
+    //console.log(res)
 
     if (res.status !== 200) {
       console.log("hubo un error: " + res.status + data.message);
     }
 }
-  await createProduct3();
+  await createProduct();
 
-  const res = await fetch(url, {
+  const res = await fetch(urlUpload, {
     method: 'POST',
     body: formData
   })
 
 
 }
+
+
 
 function addFila(){
   const caja = document.getElementById('cajaCarac')

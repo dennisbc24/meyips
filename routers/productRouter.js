@@ -1,5 +1,9 @@
 const express = require('express');
 const router = express.Router();
+//modulo para eliminar archivos de backend
+const { unlink } = require('fs-extra')
+const path = require('path');
+
 const schemaHandler = require('../middlewares/schema.handler');
 
 const {createProductSchema, getProductSchema, updateProductSchema} = require('../schemas/product.schema')
@@ -29,6 +33,7 @@ router.get('/:id', schemaHandler(getProductSchema, 'params'), async (req, res, n
     const { id } = req.params;
     const product = await Product.findById(id);
     res.json(product);
+    
   } catch (err) {
     next(err)
   }
@@ -47,10 +52,13 @@ router.post('/', schemaHandler(createProductSchema, 'body'), async (req, res, ne
 
   } catch(e){
     next(e)
-  }
+  }})
 
-}
-)
+router.post('/upload', (req, res) => {
+  console.log(req.file);
+  res.render('index');
+  
+})
 
 router.patch('/:id',
 schemaHandler(getProductSchema, 'params'),
@@ -74,8 +82,11 @@ async (req, res) => {
 router.delete('/:id',schemaHandler(getProductSchema, 'params'), async (req, res, next) => {
   try {
     const { id } = req.params;
-    const product = await Product.findByIdAndRemove(id);
-
+    const product = await service.delete(id);
+    const publicPath = __dirname;
+    const direccion = `${publicPath}/dennis/images/ropero3.jpg`
+    console.log(direccion);
+    unlink(path.resolve(direccion))
     res.json(id)
 
   } catch(e){
