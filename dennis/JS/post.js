@@ -128,7 +128,7 @@ function traer(){
       const todosLosElementos = [];
       responseJson.forEach((elemento) => {
         const container = document.createElement('article');
-        container.id = elemento.id;
+        //container.id = elemento.id;
         const imagen = document.createElement('img');
         imagen.src = elemento.imageUrl;
         const detalles = document.createElement('div');
@@ -150,6 +150,7 @@ function traer(){
         callToAction.className = 'calltoaction';
         const eliminar = document.createElement('button');
         eliminar.className = 'buttonDelete';
+        eliminar.setAttribute('_id', elemento.id)
         eliminar.textContent = 'eliminar';
         const link = document.createElement('a');
         const wsp = document.createElement('div');
@@ -180,17 +181,26 @@ function traer(){
 traer();
 
 //metodo delete
-
-/* const boton = document.getElementsByClassName(".articulos__container")
-
-function clic(){
-  if (e.target.classList.contains("buttonDelete")) {
-    console.log('hola');
+async function deleteCard(id) {
+  const res = await fetch(`${url}/${id}`, {
+    headers: {
+      "Content-Type": "application/json",
+    },
+    method: "Delete",
+  });
+  const data = await res.json();
+  console.log(data);
 }
-boton.addEventListener("click", clic, false)
 
 
-function load() {
-  var el = document.getElementById("t");
-  el.addEventListener("click", clic, false);
-} */
+const boton = document.getElementById('articulos')
+.addEventListener('click', e => {
+  if(e.target.classList.contains('buttonDelete')){
+    console.log(e.target.getAttribute('_id'))
+    deleteCard(e.target.getAttribute('_id'))
+
+  }
+  //traer();
+})
+
+

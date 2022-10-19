@@ -31,7 +31,7 @@ router.get('/', async(req, res) => {
 router.get('/:id', schemaHandler(getProductSchema, 'params'), async (req, res, next) => {
   try {
     const { id } = req.params;
-    const product = await Product.findById(id);
+    const product = await service.findOne(id)
     res.json(product);
 
   } catch (err) {
@@ -82,11 +82,13 @@ async (req, res) => {
 router.delete('/:id',schemaHandler(getProductSchema, 'params'), async (req, res, next) => {
   try {
     const { id } = req.params;
+    const encontrar = await service.findOne(id);
+    console.log(encontrar.imageUrl);
     const product = await service.delete(id);
     const publicPath = __dirname.replace('routers', 'dennis');;
-    const direccion = `${publicPath}/images/whatsapp-1.png`
-    console.log(req.params);
-    //unlink(path.resolve(direccion))
+    const direccion = `${publicPath}${encontrar.imageUrl}`;
+    console.log(direccion);
+    unlink(path.resolve(direccion))
     res.json(id)
 
   } catch(e){

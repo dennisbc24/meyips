@@ -50,7 +50,7 @@
               const todosLosElementos = [];
               responseJson.forEach((elemento) => {
                 const container = document.createElement('article');
-                container.id = elemento.id;
+                //container.id = elemento.id;
                 const imagen = document.createElement('img');
                 imagen.src = elemento.imageUrl;
                 const detalles = document.createElement('div');
