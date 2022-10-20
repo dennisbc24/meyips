@@ -22,6 +22,7 @@ class ProductService {
             this.products.push({
                 id: faker.datatype.uuid(),
                 name: faker.commerce.productName(),
+                category: faker.address.city(),
                 price: parseInt(faker.commerce.price(), 10),
                 caracteristicas: ["hola", "como", "estan"],
                 imageUrl: '/images/roperoazul.jpg',

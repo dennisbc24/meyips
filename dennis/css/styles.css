@@ -238,3 +238,18 @@ main {
 	--columns: 4;
 }
 
+footer {
+  background: linear-gradient(90.07deg, #4247C7 0.42%, #3A61C5 47.66%, #2DC661 103.07%);
+  height: 39px;
+  width: auto;
+
+  display: flex;
+
+          align-items: center;
+
+          justify-content: space-evenly;
+}
+footer img {
+  height: 30px;
+}
+

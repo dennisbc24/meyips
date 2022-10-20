@@ -12,7 +12,7 @@
     namesValue = [].map.call(carac, function(dataInput){
       arrayCarac.push(dataInput.value);
     })
-    
+
     const imagen = document.getElementById('imageInput')
     console.log(imagen);
 
@@ -55,7 +55,7 @@
 
                 const detalles = document.createElement('div');
                 detalles.className = 'detalles'
-        
+
                   const title = document.createElement('p');
                   title.textContent = elemento.name;
                   const price = document.createElement('h1');
@@ -63,16 +63,16 @@
                   const caracteristicas = document.createElement('div');
                   caracteristicas.className = 'caracteristicas'
                   const arrayCaracteristicas = elemento.caracteristicas;
-                  
+
                   arrayCaracteristicas.forEach(item => {
                     const itemList = document.createElement('p');
                     itemList.textContent = item;
                     caracteristicas.append(itemList)
-                    
+
                   })
-                  
+
                   detalles.append(title,price,caracteristicas);
-                
+
                 const callToAction = document.createElement('div');
                 callToAction.className = 'calltoaction';
                   const link = document.createElement('a');
@@ -87,32 +87,35 @@
                   link.append(wsp);
                 callToAction.append(link);
 
-                
+
                 container.append(imagen, detalles, callToAction);
                 container.className = 'articulos__container';
-        
+
                 todosLosElementos.push(container);
+                //todosLosElementos.map()
               });
               const cajaGrande = document.getElementById('articulos');
+
               cajaGrande.append(...todosLosElementos);
               masonryLayout(document.getElementById('articulos'), document.querySelectorAll('.articulos__container'), 2)
             });
+
         };
 
         traer();
 
         const masonryLayout = (containerElem,itemsElems,columns) => {
-          
+
           containerElem.classList.add('masonry-layout', `columns-${columns}`)
           let columnsElements = []
-        
+
           for (let i = 1; i <= columns; i++) {
               let column = document.createElement('div')
               column.classList.add('masonry-column', `column-${i}`)
               containerElem.appendChild(column)
-              columnsElements.push(column)    
+              columnsElements.push(column)
           }
-        
+
           for(let m = 0; m < Math.ceil(itemsElems.length / columns); m++){
               for(let n = 0; n < columns; n++) {
                   let item = itemsElems[m * columns + n]
@@ -122,4 +125,3 @@
           }
         }
 
-          
