@@ -92,11 +92,20 @@
                 container.className = 'articulos__container';
 
                 todosLosElementos.push(container);
-                //todosLosElementos.map()
-              });
-              const cajaGrande = document.getElementById('articulos');
+                console.log(todosLosElementos);
+                //intento
+                const newArray = [];
+                for (let index = 0; index < todosLosElementos.length; index++) {
+                      const element = todosLosElementos[index];
+                      if (element.inBlock == true) {
+                          newArray.push(element)
+                      }
+                  }
+                  const cajaGrande = document.getElementById('articulos');
 
-              cajaGrande.append(...todosLosElementos);
+              cajaGrande.append(...newArray);
+              });
+
               masonryLayout(document.getElementById('articulos'), document.querySelectorAll('.articulos__container'), 2)
             });
 
