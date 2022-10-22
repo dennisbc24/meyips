@@ -1,4 +1,25 @@
 	const url = "http://localhost:3000/api/v1/products";
+  const masonryLayout = (containerElem,itemsElems,columns) => {
+
+    containerElem.classList.add('masonry-layout', `columns-${columns}`)
+    let columnsElements = []
+
+    for (let i = 1; i <= columns; i++) {
+        let column = document.createElement('div')
+        column.classList.add('masonry-column', `column-${i}`)
+        containerElem.appendChild(column)
+        columnsElements.push(column)
+    }
+
+    for(let m = 0; m < Math.ceil(itemsElems.length / columns); m++){
+        for(let n = 0; n < columns; n++) {
+            let item = itemsElems[m * columns + n]
+            columnsElements[n].appendChild(item)
+            item.classList.add('masonry-item')
+        }
+    }
+  }
+
 
 //metodo get desde el frontend
 function traer(){
@@ -36,11 +57,11 @@ function traer(){
 					const wsp = document.createElement('div');
 					wsp.className = 'wsp';
 					const contact = document.createElement('p');
-					contact.textContent = 'Contactar';
+					contact.textContent = 'PEDIR';
 					const icon = document.createElement('img');
 					icon.src = '/icons/whatsapp3.png';
 					icon.alt = 'icono de Whatsapp'
-					wsp.append(contact,icon);
+					wsp.append(contact);
 					link.append(wsp);
 					callToAction.append(link);
 					container.append(imagen, detalles, callToAction);
@@ -52,32 +73,16 @@ function traer(){
 
 					cajaGrande.append(...todosLosElementos);
 					}
+          //masonryLayout(document.getElementById('articulos'), document.querySelectorAll('.articulos__container'), 2)
 			});
+
 	})
+
 }
-const masonryLayout = (containerElem,itemsElems,columns) => {
 
-	containerElem.classList.add('masonry-layout', `columns-${columns}`)
-	let columnsElements = []
-
-	for (let i = 1; i <= columns; i++) {
-			let column = document.createElement('div')
-			column.classList.add('masonry-column', `column-${i}`)
-			containerElem.appendChild(column)
-			columnsElements.push(column)
-	}
-
-	for(let m = 0; m < Math.ceil(itemsElems.length / columns); m++){
-			for(let n = 0; n < columns; n++) {
-					let item = itemsElems[m * columns + n]
-					columnsElements[n].appendChild(item)
-					item.classList.add('masonry-item')
-			}
-	}
-}
  traer();
 
-
+ masonryLayout(document.getElementById('articulos'), document.querySelectorAll('.articulos__container'), 2)
  function traerFalse(){
   const cajaGrande = document.getElementById('articulos');
   cajaGrande.innerHTML = "";

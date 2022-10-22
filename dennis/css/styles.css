@@ -16,10 +16,8 @@ header {
 	background: linear-gradient(90.07deg, #4247C7 0.42%, #3A61C5 47.66%, #2DC661 103.07%);
 	height: auto;
 	display: flex;
-					align-items: center;
-
-
-					justify-content: space-between;
+	align-items: center;
+	justify-content: space-between;
 	padding: 5px 10px;
 }
 header .logo {
@@ -42,13 +40,13 @@ header .menu img {
 }
 
 main {
+  background-color: white;
+  display: grid;
 	text-decoration: none;
 	height: auto;
 }
 
 .categorias {
-	display: -webkit-box;
-	display: -ms-flexbox;
 	display: flex;
 	width: auto;
 	justify-content: space-between;
@@ -74,8 +72,6 @@ main {
 	height: 66px;
 	padding: 0 7px;
 	margin: 0 7px;
-	display: -webkit-box;
-	display: -ms-flexbox;
 	display: flex;
 	flex-direction: column;
 	place-items: center;
@@ -96,7 +92,7 @@ main {
 	min-height: 150px;
 	border-radius: 15px;
 	width: 95%;
-	margin: 0 14px 0 10px;
+	margin: 0 14px 5px 10px;
 	background-size: 100%;
 	background-image: url(/img/banner/1.jpg);
 	animation-name: game;
@@ -145,10 +141,9 @@ main {
 		background-image: url(/img/banner/8.jpg);
 	}
 }
-.articulos {
-	display: -ms-grid;
+#articulos {
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
+	grid-template-columns: repeat(auto-fill, 49%);
 	grid-gap: 4px;
 	width: 100%;
 	margin: 0 auto;
@@ -157,9 +152,11 @@ main {
 
 .articulos__container {
   display: flex;
+  border-radius: 15px;
   flex-direction: column;
 	padding: 6px;
-	margin: 10px 10px 10px 0px;
+	margin: 2px 3px 3px 5px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5), -2px -2px 15px rgba(255, 255, 255, 0.25), -5px -5px 10px rgba(255, 255, 255, 0.25);
 	background-color: white;
 	justify-content: center;
 
@@ -168,7 +165,7 @@ main {
 	padding-left: 4px;
 	display: flex;
 	text-align: center;
- flex-direction: column;
+  flex-direction: column;
 	margin: 5px;
 }
 .articulos__container .detalles p {
@@ -185,15 +182,13 @@ main {
 }
 .articulos__container .calltoaction {
 	height: auto;
-
 	display: flex;
-
-					justify-content: center;
+  min-width: auto;
+	justify-content: center;
 }
 .articulos__container .calltoaction a {
-	width: 35px;
+	width: auto;
 	height: 32px;
-
 	display: flex;
 	border-radius: 10px;
 	text-decoration: none;
@@ -204,9 +199,14 @@ main {
 	height: 20px;
 }
 .articulos__container .calltoaction a .wsp {
-
-	background-color: #2DC661;
+width: 96px;
+	background-color: #404dc6;
 	border-radius: 15px;
+  display: flex;
+
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 .articulos__container .calltoaction a .wsp p {
 	color: white;
