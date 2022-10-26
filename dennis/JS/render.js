@@ -1,6 +1,7 @@
 const telefonoParaContacto = 915355802;
 
-const url = "http://localhost:3000/api/v1/products";
+const url = "https://dry-plateau-16443.herokuapp.com/api/v1/products";
+//const url = "http://localhost:3000/api/v1/products";
   const masonryLayout = (containerElem,itemsElems,columns) => {
 
     containerElem.classList.add('masonry-layout', `columns-${columns}`)
