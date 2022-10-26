@@ -34,7 +34,12 @@ function traer(){
         callToAction.className = 'calltoaction';
         const eliminar = document.createElement('button');
         eliminar.className = 'buttonDelete';
-        eliminar.setAttribute('_id', elemento.id)
+        //faker
+        //eliminar.setAttribute('_id', elemento.id)
+
+        //mongoDB
+        eliminar.setAttribute('_id', elemento._id)
+        
         eliminar.textContent = 'eliminar';
         const link = document.createElement('a');
         const wsp = document.createElement('div');
@@ -57,6 +62,7 @@ function traer(){
       });
     })
 }
+
 // metodo post
 async function subirImagen() {
   const form = document.getElementById('uploadImage')
@@ -120,13 +126,7 @@ async function subirImagen() {
 
 }
 
-function addFila(){
-  const caja = document.getElementById('cajaCarac')
-  const newInput = document.createElement('input');
-  newInput.type = "text"
-  newInput.className = 'caracInput';
-  caja.appendChild(newInput)
-}
+//renderizacion
 traer();
 
 //metodo delete
@@ -153,8 +153,14 @@ const boton = document.getElementById('articulos')
   }
 })
 
+const agregar = document.getElementById('addCarac')
+.addEventListener('click', e => {
+  const caja = document.getElementById('cajaCarac')
+  const newInput = document.createElement('input');
+  newInput.type = "text"
+  newInput.className = 'caracInput';
+  caja.appendChild(newInput)
+  e.preventDefault();
 
-
-
-
+})
 

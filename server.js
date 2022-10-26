@@ -54,7 +54,7 @@ app.use(logError);
 app.use(errorBoomHandler);
 app.use(errorHandler);
 
-/* const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
 const user = 'dennis_prueba';
 const password = 'xEYFUZVdPUqXvBMG';
@@ -65,7 +65,7 @@ mongoose.Promise = global.Promise;
 mongoose.connect(uri,{
     useNewUrlParser: true, useUnifiedTopology: true})
     .then(()=> console.log('Base de datos conectada'))
-    .catch(e => console.log(e)) */
+    .catch(e => console.log(e))
 
 //con esto escuchamos el puerto 3005
 app.listen(port, () => {

@@ -5,6 +5,7 @@ html(lang="en")
 		meta(http-equiv="X-UA-Compatible", content="IE=edge")
 		meta(name="viewport", content="width=device-width, initial-scale=1.0")
 		link(rel="stylesheet", href="/css/styles.css")
+		link(rel="stylesheet", href="/css/stylesPost.css")
 		link(rel="stylesheet", href="/css/tablet.css", media="screen and (min-width:420px)")
 		title Document
 	body
@@ -14,32 +15,31 @@ html(lang="en")
 				h1 maxi cusco
 			div(class="menu")
 				img(src="/icons/menu.png", alt="Menú")
-		section(id="articulos")
-		h1 Agregar prodcuto con el metodo post
+	main
+		
+		section(id="post")
+			h1 Nuevo producto
 			form(id="uploadImage", enctype="multipart/form-data")
-				p subir archivo
-				input(id="file" type="file", name="foto")
-
-			p nombre
+				p Subir archivo
+					input(id="file" type="file", name="foto")
+				p Nombre
 				input(width=300 type="text", name="nombre" id="nameInput")
-			p categoria
+				p Categoria
 				input(width=300 type="text", name="categoria" id="categoryInput")
-			p precio
+				p Precio
 				input(width=300 type="number", name="precio" id="priceInput")
 
-			p caracteristicas
-				button(id="add" onclick="addFila()") agregar
+				p(id="caracteristicas") Caracteristicas
+				button(class="addCarac" id="addCarac") Agregar Caracteristica
 
-			div(id="cajaCarac")
+				div(id="cajaCarac" class="cajaCarac")
 
-				input(width=300 type="text", name="carac" class="caracInput")
+					input(width=300 type="text", name="carac" class="caracInput")
 
 
 
-			button(onclick="subirImagen()") cargar
+				button(onclick="subirImagen()" class="finalizar") Finalizar
+		section(id="articulos")
 
-main
-
-	section(id="articulos")
 script(src="/JS/post.js")
 

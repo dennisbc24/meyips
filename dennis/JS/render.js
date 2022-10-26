@@ -1,4 +1,6 @@
-	const url = "http://localhost:3000/api/v1/products";
+const telefonoParaContacto = 915355802;
+
+const url = "http://localhost:3000/api/v1/products";
   const masonryLayout = (containerElem,itemsElems,columns) => {
 
     containerElem.classList.add('masonry-layout', `columns-${columns}`)
@@ -22,7 +24,7 @@
 
 
 //metodo get desde el frontend
-function traer(){
+function traer(categoryProduct){
   const cajaGrande = document.getElementById('articulos');
   cajaGrande.innerHTML = "";
 	window
@@ -31,7 +33,7 @@ function traer(){
 		.then((responseJson)=>{
 			const todosLosElementos = [];
 			responseJson.forEach((elemento) => {
-				if (elemento.inBlock == true) {
+				if (elemento.category == categoryProduct) {
 					const container = document.createElement('article');
 					//container.id = elemento.id;
 					const imagen = document.createElement('img');
@@ -39,7 +41,8 @@ function traer(){
 					const detalles = document.createElement('div');
 					detalles.className = 'detalles'
 					const title = document.createElement('p');
-					title.textContent = elemento.name;
+						const tituloProduct = elemento.name;
+					title.textContent = tituloProduct;
 					const price = document.createElement('h1');
 					price.textContent = elemento.price;
 					const caracteristicas = document.createElement('div');
@@ -54,6 +57,15 @@ function traer(){
 					const callToAction = document.createElement('div');
 					callToAction.className = 'calltoaction';
 					const link = document.createElement('a');
+							
+						const api = `https://api.whatsapp.com/send/?phone=${telefonoParaContacto}&text=`
+						const texto = `Hola estoy interesado en el producto: ${tituloProduct}. Necesito más información.`;
+						const espacio = " ";
+						const newArray = texto.split(espacio);
+						newString = newArray.join("%20");
+						const final = `${api}${newString}`;
+
+					link.href = final;
 					const wsp = document.createElement('div');
 					wsp.className = 'wsp';
 					const contact = document.createElement('p');
@@ -75,83 +87,43 @@ function traer(){
 					}
           //masonryLayout(document.getElementById('articulos'), document.querySelectorAll('.articulos__container'), 2)
 			});
-
 	})
-
 }
 
- traer();
+ traer("electro");
 
  masonryLayout(document.getElementById('articulos'), document.querySelectorAll('.articulos__container'), 2)
- function traerFalse(){
-  const cajaGrande = document.getElementById('articulos');
-  cajaGrande.innerHTML = "";
-	window
-	.fetch(url)
-		.then((respuesta)=> respuesta.json())
-		.then((responseJson)=>{
-			const todosLosElementos = [];
-			responseJson.forEach((elemento) => {
 
-				if (elemento.inBlock == false) {
+ const botonElectro = document.getElementById('electroCategory')
+ .addEventListener('click', e => {
+   traer("electro")
+   })
 
-				const container = document.createElement('article');
-				//container.id = elemento.id;
-				const imagen = document.createElement('img');
-				imagen.src = elemento.imageUrl;
-				const detalles = document.createElement('div');
-				detalles.className = 'detalles'
-				const title = document.createElement('p');
-				title.textContent = elemento.name;
-				const price = document.createElement('h1');
-				price.textContent = elemento.price;
-				const caracteristicas = document.createElement('div');
-				caracteristicas.className = 'caracteristicas'
-				const arrayCaracteristicas = elemento.caracteristicas;
-				arrayCaracteristicas.forEach(item => {
-					const itemList = document.createElement('p');
-					itemList.textContent = item;
-					caracteristicas.append(itemList)
-						})
-				detalles.append(title,price,caracteristicas);
-				const callToAction = document.createElement('div');
-				callToAction.className = 'calltoaction';
-				const link = document.createElement('a');
-				const wsp = document.createElement('div');
-				wsp.className = 'wsp';
-				const contact = document.createElement('p');
-				contact.textContent = 'Contactar';
-				const icon = document.createElement('img');
-				icon.src = '/icons/whatsapp3.png';
-				icon.alt = 'icono de Whatsapp'
-				wsp.append(contact,icon);
-				link.append(wsp);
-				callToAction.append(link);
-				container.append(imagen, detalles, callToAction);
-				container.className = 'articulos__container';
-				container.classList.add = 'column-1';
-				todosLosElementos.push(container);
-
-
-
-
-			cajaGrande.append(...todosLosElementos);
-				}
-
-			});
-		})
-}
-
-const boton = document.getElementById('roperosCategory')
+const botonRoperos = document.getElementById('roperosCategory')
 .addEventListener('click', e => {
-  traerFalse()
-  console.log('holafalso');
-
+	traer("roperos")
   })
 
-  const botonRopero = document.getElementById('electroCategory')
-.addEventListener('click', e => {
-  traer()
-  console.log('holaverdadero');
+  const botonCocina = document.getElementById('cocinaCategory')
+  .addEventListener('click', e => {
+	  traer("cocina")
+	})
 
+	const botonTermos = document.getElementById('termosCategory')
+.addEventListener('click', e => {
+	traer("termos")
   })
+
+  const botonEquipaje = document.getElementById('equipajeCategory')
+.addEventListener('click', e => {
+	traer("equipaje")
+   })
+
+  const botonBelleza = document.getElementById('bellezaCategory')
+  .addEventListener('click', e => {
+	  traer("belleza")
+	
+	})
+
+
+	
