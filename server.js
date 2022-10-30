@@ -45,7 +45,8 @@ const direccion = `${publicPath}/dennis/images`
 console.log(direccion);
 app.use(multer({
     storage: storage,
-    dest: './dennis/images'
+    dest: './dennis/images',
+    fileSize: 5000000 // 5MB
 }).single('foto'));
 
 routerApi(app);
