@@ -25,8 +25,9 @@ html(lang="en")
 				p Nombre
 				input(width=300 type="text", name="nombre" id="nameInput")
 				p Categoria
-				input(width=300 type="text", name="categoria" id="categoryInput")
-				option(value="cocina") cocina
+				input(for="selectCategory" width=300 type="text", name="categoria" id="categoryInput")
+				select(id="selectCategory" name="listaCategory")
+					option(value="cocina") cocina
 				p Precio
 				input(width=300 type="number", name="precio" id="priceInput")
 
