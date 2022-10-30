@@ -46,7 +46,7 @@ console.log(direccion);
 app.use(multer({
     storage: storage,
     dest: './dennis/images',
-    fileSize: 5000000 // 5MB
+    fileSize: 50000000 // 50MB
 }).single('foto'));
 
 routerApi(app);
