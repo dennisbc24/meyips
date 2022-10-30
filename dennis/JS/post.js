@@ -1,5 +1,7 @@
-const url = "http://localhost:3000/api/v1/products";
-const urlUpload = "http://localhost:3000/api/v1/products/upload";
+const urlRaiz = "https://dry-plateau-16443.herokuapp.com";
+
+const url = `${urlRaiz}/api/v1/products`;
+const urlUpload = `${urlRaiz}/api/v1/products/upload`;
 
 //metodo get
 function traer(){
