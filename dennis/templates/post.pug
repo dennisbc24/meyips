@@ -24,9 +24,13 @@ html(lang="en")
 					input(id="file" type="file", name="foto")
 				p Nombre
 				input(width=300 type="text", name="nombre" id="nameInput")
-				label(for="selectCategory" width=300 type="text", name="categoria" id="categoryInput") Categoria
-				select(id="selectCategory" name="listaCategory")
-					option(value="cocina") cocina
+				select(name="listaCategory" id="categoryInput")
+					option(disabled selected) Seleciona la categoria
+					option(value="electro") Electro
+					option(value="roperos") Roperos
+					option(value="termos") Termos
+					option(value="equipaje") Equipaje
+					option(value="belleza") Belleza
 				p Precio
 				input(width=300 type="number", name="precio" id="priceInput")
 
