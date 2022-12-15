@@ -1,10 +1,11 @@
 const express = require('express');
+const config = require('./config/config')
 //libreria para subir archivos
 const multer = require('multer');
 const cors = require('cors');
 const app = express();
 const path = require('path');
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8080;
 
 const {logError,errorHandler, errorBoomHandler} = require('./middlewares/error.handler')
 //donde va a encontrar los archivos estaticos
@@ -57,9 +58,15 @@ app.use(errorHandler);
 
 const mongoose = require('mongoose');
 
-const user = 'dennis_prueba';
+/* const user = 'dennis_prueba';
 const password = 'xEYFUZVdPUqXvBMG';
 const dbname = 'prouctos';
+ */
+
+const user = config.config.dbUser
+const dbname = config.config.dbName
+const password = config.config.dbPassword
+
 const uri = `mongodb+srv://${user}:${password}@cursoplatzi.yir1r.mongodb.net/${dbname}?retryWrites=true&w=majority`;
 
 mongoose.Promise = global.Promise;
@@ -68,7 +75,7 @@ mongoose.connect(uri,{
     .then(()=> console.log('Base de datos conectada'))
     .catch(e => console.log(e))
 
-//con esto escuchamos el puerto 3005
+//con esto escuchamos el puerto 
 app.listen(port, () => {
     console.log('Mi port ' + port);
 });
