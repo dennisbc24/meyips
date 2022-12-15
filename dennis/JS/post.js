@@ -1,5 +1,6 @@
 //const urlRaiz = "https://dry-plateau-16443.herokuapp.com";
-const urlRaiz = "http://localhost:8080";
+//const urlRaiz = "http://localhost:8080";
+const urlRaiz = "http://18.228.203.151:8080"
 
 const url = `${urlRaiz}/api/v1/products`;
 const urlUpload = `${urlRaiz}/api/v1/products/upload`;
