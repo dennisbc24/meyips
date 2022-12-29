@@ -1,6 +1,6 @@
 const faker = require("faker");
 const boom = require('@hapi/boom');
-const sequelize = require('../libs/sequelize');
+
 
 const db = require('mongoose');
 const Product = require('../modelMongo/product');

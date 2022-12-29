@@ -1,7 +1,11 @@
 const telefonoParaContacto = 915355802;
-//const urlRaiz = "http://localhost:8080";
-const urlRaiz = "http://18.228.203.151:8080";
+const urlRaiz = "http://localhost:8080";
+//const urlRaiz = "http://18.228.203.151:8080";
 //const urlRaiz = "https://dry-plateau-16443.herokuapp.com";
+
+
+//https://prueba1dennis.s3.sa-east-1.amazonaws.com/hola.jpeg
+//https://prueba1dennis.s3.sa-east-1.amazonaws.com/licuadora3.jpeg
 
 const url = `${urlRaiz}/api/v1/products`;
   const masonryLayout = (containerElem,itemsElems,columns) => {
@@ -128,5 +132,8 @@ const botonRoperos = document.getElementById('roperosCategory')
 	
 	})
 
+
+
+	//https://prueba1dennis.s3.sa-east-1.amazonaws.com/hola.jpeg
 
 	

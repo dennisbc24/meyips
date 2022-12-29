@@ -1,9 +1,15 @@
 //const urlRaiz = "https://dry-plateau-16443.herokuapp.com";
 //const urlRaiz = "http://localhost:8080";
-const urlRaiz = "http://18.228.203.151:8080"
+// const urlRaiz = "http://18.228.203.151:8080"
+
+//const url = `${urlRaiz}/api/v1/products`;
+//const urlUpload = `${urlRaiz}/api/v1/products/upload`;
+
+const urlRaiz = "http://localhost:8080";
+//const urlRaiz = "https://18.228.203.151:8080";
 
 const url = `${urlRaiz}/api/v1/products`;
-const urlUpload = `${urlRaiz}/api/v1/products/upload`;
+const urlUpload = `${urlRaiz}/api/v1/products/files`;
 
 //metodo get
 function traer(){
@@ -68,7 +74,7 @@ function traer(){
 }
 
 // metodo post
-async function subirImagen() {
+/* async function subirImagen() {
   const form = document.getElementById('uploadImage')
   const formData = new FormData(form);
 
@@ -129,7 +135,7 @@ async function subirImagen() {
   })
 
 
-}
+} */
 
 //renderizacion
 traer();
@@ -169,3 +175,63 @@ const agregar = document.getElementById('addCarac')
 
 })
 
+
+
+
+
+
+//metodo post 2.0
+
+const btnUpload = document.querySelector('#upload');
+const imageResult = document.querySelector('#image');
+const linkDownload = document.querySelector('#link');
+
+btnUpload.addEventListener('click',e=>{
+    e.preventDefault();
+    const formulario = document.querySelector('#uploadImage')
+    const formDataAws = new FormData(formulario);
+    const nombre = document.getElementById('nameInput')
+    const categoria = document.getElementById('categoryInput')
+    const precio = document.getElementById('priceInput')
+    //array
+    const arrayCarac = [];
+    const carac = document.getElementsByClassName('caracInput'),
+    namesValue = [].map.call(carac, function(dataInput){
+      arrayCarac.push(dataInput.value);
+    })
+    
+    const file = document.querySelector('#file').files[0];
+
+    
+    const urlArmada = `/images/${file.name}`
+
+    const productoNuevo = {
+      name: nombre.value,
+      category: categoria.value,
+      price: parseInt(precio.value),
+      caracteristicas: arrayCarac,
+      imageUrl: urlArmada
+    }
+    const datos = JSON.stringify(productoNuevo)
+    
+    //para subir la imagen a aws
+   
+    console.log(file);
+    console.log(datos);
+    
+    formDataAws.append('file',file)
+    formDataAws.append('datos',datos)
+    console.log(formDataAws.getAll('file'));
+    console.log(formDataAws);
+        
+    uploadFile(formDataAws);
+   
+});
+
+const uploadFile = (formDataParam) => {
+
+    fetch(urlUpload,{
+        method:'POST',
+        body:formDataParam
+    })
+  };

@@ -1,5 +1,8 @@
 const express = require('express');
 const router = express.Router();
+
+const {uploadFile, getFile} = require('../helpers/aws')
+
 //modulo para eliminar archivos de backend
 const { unlink } = require('fs-extra')
 const path = require('path');
@@ -29,6 +32,48 @@ router.get('/', async(req, res) => {
     console.log(err);
   }
 })
+
+router.post('/files'
+//,schemaHandler(createProductSchema, 'datos')
+,
+async (req,res,next)=> {
+
+  try {
+    const imagen = req.files.file
+    const datos = JSON.parse(req.body.datos)
+    console.log(imagen);
+    console.log(datos);
+    //await uploadFile(imagen);
+    //const arrayProductDB = Product.create(datos)
+    //res.json(arrayProductDB);
+    //console.log(imagen);
+    res.json({message: 'archivo subido'})
+  } 
+    catch(e){
+      next(e)
+  }
+  
+})
+
+router.get('/files/:fileName', async (req,res)=> {
+  const result = await getFile(req.params.fileName)
+  res.json(result.$metadata)
+  
+  
+  res.json({message: 'archivo recibido'})
+})
+
+router.get('/:id', schemaHandler(getProductSchema, 'params'), async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const product = await service.findOne(id)
+    res.json(product);
+
+  } catch (err) {
+    next(err)
+  }
+}
+);
 
 router.get('/:id', schemaHandler(getProductSchema, 'params'), async (req, res, next) => {
   try {
