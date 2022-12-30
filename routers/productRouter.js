@@ -43,10 +43,10 @@ async (req,res,next)=> {
     const datos = JSON.parse(req.body.datos)
     console.log(imagen);
     console.log(datos);
-    //await uploadFile(imagen);
-    //const arrayProductDB = Product.create(datos)
-    //res.json(arrayProductDB);
-    //console.log(imagen);
+    await uploadFile(imagen);
+    const arrayProductDB = Product.create(datos)
+    res.json(arrayProductDB);
+    console.log(imagen);
     res.json({message: 'archivo subido'})
   } 
     catch(e){

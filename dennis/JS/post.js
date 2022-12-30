@@ -5,8 +5,8 @@
 //const url = `${urlRaiz}/api/v1/products`;
 //const urlUpload = `${urlRaiz}/api/v1/products/upload`;
 
-const urlRaiz = "http://localhost:8080";
-//const urlRaiz = "https://18.228.203.151:8080";
+//const urlRaiz = "http://localhost:8080";
+const urlRaiz = "https://18.228.203.151:8080";
 
 const url = `${urlRaiz}/api/v1/products`;
 const urlUpload = `${urlRaiz}/api/v1/products/files`;
@@ -202,8 +202,13 @@ btnUpload.addEventListener('click',e=>{
     
     const file = document.querySelector('#file').files[0];
 
+    //este era para vincular la imagen al mismo folder
+    //const urlArmada = `/images/${file.name}`
+
+
+    const urlArmada = `https://prueba1dennis.s3.sa-east-1.amazonaws.com/dibujos/${file.name}`
+
     
-    const urlArmada = `/images/${file.name}`
 
     const productoNuevo = {
       name: nombre.value,
