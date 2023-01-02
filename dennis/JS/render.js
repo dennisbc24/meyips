@@ -1,6 +1,6 @@
 const telefonoParaContacto = 915355802;
-const urlRaiz = "http://localhost:8080";
-//const urlRaiz = "http://18.228.203.151:8080";
+//const urlRaiz = "http://localhost:8080";
+const urlRaiz = "http://18.228.203.151:8080";
 //const urlRaiz = "https://dry-plateau-16443.herokuapp.com";
 
 
@@ -64,7 +64,7 @@ function traer(categoryProduct){
 					const callToAction = document.createElement('div');
 					callToAction.className = 'calltoaction';
 					const link = document.createElement('a');
-							
+
 						const api = `https://api.whatsapp.com/send/?phone=${telefonoParaContacto}&text=`
 						const texto = `Hola estoy interesado en el producto: ${tituloProduct}. Necesito más información.`;
 						const espacio = " ";
@@ -129,11 +129,10 @@ const botonRoperos = document.getElementById('roperosCategory')
   const botonBelleza = document.getElementById('bellezaCategory')
   .addEventListener('click', e => {
 	  traer("belleza")
-	
+
 	})
 
 
 
 	//https://prueba1dennis.s3.sa-east-1.amazonaws.com/hola.jpeg
 
-	
