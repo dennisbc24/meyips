@@ -49,7 +49,7 @@ function traer(){
 
         //mongoDB
         eliminar.setAttribute('_id', elemento._id)
-        
+
         eliminar.textContent = 'eliminar';
         const link = document.createElement('a');
         const wsp = document.createElement('div');
@@ -199,7 +199,7 @@ btnUpload.addEventListener('click',e=>{
     namesValue = [].map.call(carac, function(dataInput){
       arrayCarac.push(dataInput.value);
     })
-    
+
     const file = document.querySelector('#file').files[0];
 
     //este era para vincular la imagen al mismo folder
@@ -208,7 +208,7 @@ btnUpload.addEventListener('click',e=>{
 
     const urlArmada = `https://prueba1dennis.s3.sa-east-1.amazonaws.com/dibujos/${file.name}`
 
-    
+
 
     const productoNuevo = {
       name: nombre.value,
@@ -218,19 +218,19 @@ btnUpload.addEventListener('click',e=>{
       imageUrl: urlArmada
     }
     const datos = JSON.stringify(productoNuevo)
-    
+
     //para subir la imagen a aws
-   
+
     console.log(file);
     console.log(datos);
-    
+
     formDataAws.append('file',file)
     formDataAws.append('datos',datos)
     console.log(formDataAws.getAll('file'));
     console.log(formDataAws);
-        
+
     uploadFile(formDataAws);
-   
+
 });
 
 const uploadFile = (formDataParam) => {

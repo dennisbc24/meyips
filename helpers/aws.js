@@ -1,4 +1,4 @@
-const { S3Client, PutObjectCommand, GetObjectAclCommand, GetObjectCommand } =require('@aws-sdk/client-s3')
+const { S3Client, PutObjectCommand, GetObjectAclCommand, GetObjectCommand } = require('@aws-sdk/client-s3')
 const  fs  = require('fs')
 const { config } = require('../config/config');
 
@@ -19,16 +19,19 @@ const clientS3 = new S3Client({
 
 //subir archivo
 async function uploadFile(file){
-    console.log(file);
+    console.log('iniciando upload');
     const stream = fs.createReadStream(file.tempFilePath)
-    console.log(stream);
+    console.log('stream creado');
     const uploadParams = {
         Bucket: bucketName,
-        Key: `dibujos/${file.name}`, 
+        Key: `dibujos/${file.name}`,
         Body: stream
     }
+    console.log('parametros creados');
     const command = new PutObjectCommand(uploadParams)
+    console.log(uploadParams);
     const result = await clientS3.send(command)
+    console.log('comando enviado');
     console.log(result);
 }
 
@@ -39,7 +42,7 @@ async function getFile(fileName){
         Key: fileName,
     })
     return await clientS3.send(command)
-    
+
 }
 
 /* const storage = new S3({
