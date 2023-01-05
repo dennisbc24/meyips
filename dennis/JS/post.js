@@ -6,7 +6,8 @@
 //const urlUpload = `${urlRaiz}/api/v1/products/upload`;
 
 //const urlRaiz = "http://localhost:8080";
-const urlRaiz = "http://18.228.203.151:8080";
+//const urlRaiz = "http://18.228.203.151:8080";
+const urlRaiz = "https://maxicusco.net";
 
 const url = `${urlRaiz}/api/v1/products`;
 const urlUpload = `${urlRaiz}/api/v1/products/files`;
