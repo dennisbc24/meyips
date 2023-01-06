@@ -52,7 +52,9 @@ function traer(categoryProduct){
 						const tituloProduct = elemento.name;
 					title.textContent = tituloProduct;
 					const price = document.createElement('h1');
-					price.textContent = elemento.price;
+					const priceNumber = elemento.price;
+					price.textContent = `S/${priceNumber}`;
+
 					const caracteristicas = document.createElement('div');
 					caracteristicas.className = 'caracteristicas'
 					const arrayCaracteristicas = elemento.caracteristicas;
