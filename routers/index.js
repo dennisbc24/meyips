@@ -12,6 +12,7 @@ function routerApi(app)
     app.set('view engine', 'pug')
     app.use(express.static(publicPath))
     console.log(`${publicPath}/templates`);
+		app.use('/', homeRouter)
 		app.use('/api/v1', router)
 				router.use('/', homeRouter);
 				router.use('/post', postRouter);
