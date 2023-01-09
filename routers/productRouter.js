@@ -34,31 +34,44 @@ router.get('/', async(req, res) => {
 })
 
 router.post('/files'
-//,schemaHandler(createProductSchema, 'datos')
+,schemaHandler(createProductSchema, 'datos')
 ,
 async (req,res,next)=> {
 
   try {
     const imagen = req.files.file
     const datos = JSON.parse(req.body.datos)
-    
+
     await uploadFile(imagen);
     const arrayProductDB = Product.create(datos)
     res.json(arrayProductDB);
-    
+
     res.json({message: 'archivo subido'})
-  } 
+  }
     catch(e){
       next(e)
   }
-  
+
 })
+
+//mongoDB
+router.delete('/:id',schemaHandler(getProductSchema, 'params'), async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const encontrar = await Product.findById(id);
+    const product = await Product.findByIdAndDelete(id);
+
+    res.json(id)
+  } catch(e){
+    next(e)
+  }
+});
 
 router.get('/files/:fileName', async (req,res)=> {
   const result = await getFile(req.params.fileName)
   res.json(result.$metadata)
-  
-  
+
+
   res.json({message: 'archivo recibido'})
 })
 
@@ -90,18 +103,6 @@ router.get('/filter', (req,res) => {
     res.send('yo soy un filter');
   });
 
-  //faker
-/*   router.post('/', schemaHandler(createProductSchema, 'body'), async (req, res, next) => {
-    try {
-      //const arrayProductDB = await service.create(req.body);
-      const arrayProductDB = service.create(req.body)
-      res.json(arrayProductDB);
-  
-    } catch(e){
-      next(e)
-    }}) */
-
-    //mongoBD
 router.post('/', schemaHandler(createProductSchema, 'body'), async (req, res, next) => {
   try {
     //const arrayProductDB = await service.create(req.body);
@@ -137,38 +138,8 @@ async (req, res) => {
 
   })
 
-  //faker
-  /* router.delete('/:id',schemaHandler(getProductSchema, 'params'), async (req, res, next) => {
-    try {
-      const { id } = req.params;
-      const encontrar = await service.findOne(id);
-      console.log(encontrar.imageUrl);
-      const product = await service.delete(id);
-      const publicPath = __dirname.replace('routers', 'dennis');;
-      const direccion = `${publicPath}${encontrar.imageUrl}`;
-      console.log(direccion);
-      unlink(path.resolve(direccion))
-      res.json(id)
-    } catch(e){
-      next(e)
-    }
-  }); */
 
-  //mongoDB
-router.delete('/:id',schemaHandler(getProductSchema, 'params'), async (req, res, next) => {
-  try {
-    const { id } = req.params;
-    const encontrar = await Product.findById(id);
-    const product = await Product.findByIdAndDelete(id);
-    const publicPath = __dirname.replace('routers', 'dennis');;
-    const direccion = `${publicPath}${encontrar.imageUrl}`;
-    console.log(direccion);
-    unlink(path.resolve(direccion))
-    res.json(id)
-  } catch(e){
-    next(e)
-  }
-});
+
 
 
 

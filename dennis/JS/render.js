@@ -134,8 +134,3 @@ const botonRoperos = document.getElementById('roperosCategory')
 	  traer("belleza")
 
 	})
-
-
-
-	//https://prueba1dennis.s3.sa-east-1.amazonaws.com/hola.jpeg
-
