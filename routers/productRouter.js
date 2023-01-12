@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const {uploadFile, getFile} = require('../helpers/aws')
+const {uploadFile, getFile, deleteFile} = require('../helpers/aws')
 
 //modulo para eliminar archivos de backend
 const { unlink } = require('fs-extra')
@@ -60,7 +60,7 @@ router.delete('/:id',schemaHandler(getProductSchema, 'params'), async (req, res,
     const { id } = req.params;
     const encontrar = await Product.findById(id);
     const product = await Product.findByIdAndDelete(id);
-
+    //await deleteFile(####);
     res.json(id)
   } catch(e){
     next(e)

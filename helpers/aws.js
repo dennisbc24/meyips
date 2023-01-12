@@ -1,4 +1,4 @@
-const { S3Client, PutObjectCommand, GetObjectAclCommand, GetObjectCommand } = require('@aws-sdk/client-s3')
+const { S3Client, PutObjectCommand, GetObjectAclCommand, GetObjectCommand, DeleteObjectsCommand } = require('@aws-sdk/client-s3')
 const  fs  = require('fs')
 const { config } = require('../config/config');
 
@@ -35,6 +35,20 @@ async function uploadFile(file){
     console.log(result);
 }
 
+//eliminar archivo
+
+async function deleteFile(objectName){
+
+  const deleteParams = {
+      Bucket: bucketName,
+      Key: objectName,
+
+  }
+  const command = new DeleteObjectsCommand(deleteParams)
+  const result = await clientS3.send(command)
+  console.log(result);
+}
+
 //obtener un solo archivo
 async function getFile(fileName){
     const command = new GetObjectCommand({
@@ -69,6 +83,7 @@ module.exports = {
   //  getBuckets,
     //uploadToBucket,
     uploadFile,
-    getFile
+    getFile,
+    deleteFile
 };
 
