@@ -38,6 +38,7 @@ function traer(){
           callToAction.className = 'calltoaction';
         const eliminar = document.createElement('button');
           eliminar.className = 'buttonDelete';
+            eliminar.setAttribute('_urlImage', elemento.imageUrl)
             eliminar.setAttribute('_id', elemento._id)
               eliminar.textContent = 'eliminar';
         const link = document.createElement('a');
@@ -74,13 +75,14 @@ const uploadFile = (formDataParam) => {
       method:'POST',
       body:formDataParam
   })
+
 };
 
 const btnUpload = document.querySelector('#upload');
 const imageResult = document.querySelector('#image');
 const linkDownload = document.querySelector('#link');
 
-btnUpload.addEventListener('click', e => {
+btnUpload.addEventListener('click', async e => {
     e.preventDefault();
     const formulario = document.querySelector('#uploadImage')
     const formDataAws = new FormData(formulario);
@@ -117,17 +119,24 @@ btnUpload.addEventListener('click', e => {
     console.log(formDataAws.getAll('file'));
     console.log(formDataAws);
 
-    uploadFile(formDataAws);
+    await uploadFile(formDataAws);
+
+
 
 });
 
 //metodo delete
-async function deleteCard(id) {
+async function deleteCard(id,nameObject) {
+
   const res = await fetch(`${url}/${id}`, {
     headers: {
       "Content-Type": "application/json",
     },
     method: "Delete",
+    body: 	JSON.stringify({
+      "key": nameObject
+
+    })
   });
   const data = await res.json();
   console.log(data);
@@ -136,11 +145,17 @@ async function deleteCard(id) {
 const boton = document.getElementById('articulos')
 .addEventListener('click', e => {
   if(e.target.classList.contains('buttonDelete')){
-        console.log(e.target.getAttribute('_id'))
+        const getIdMongoElement = e.target.getAttribute('_id')
+        const getImageDelete = e.target.getAttribute('_urlImage')
+        const getImageDelete2 = getImageDelete.slice(49)
+
+        console.log(getIdMongoElement);
+        console.log(getImageDelete2);
+
         console.log("card eliminada");
     traer();
 
-    deleteCard(e.target.getAttribute('_id'))
+    deleteCard(getIdMongoElement,getImageDelete2)
     //e.preventDefault();
   }
 })

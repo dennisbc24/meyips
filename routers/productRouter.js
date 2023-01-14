@@ -14,14 +14,8 @@ const {createProductSchema, getProductSchema, updateProductSchema} = require('..
 const Product = require('../modelMongo/product');
 //con esto estamos trayendo la logica del servicio
 const ProductService = require('../services/product.service');
+const { log } = require('console');
 const service = new ProductService();
-
-//faker
-/* router.get('/', async(req, res) => {
-    const products = await service.find();
-    res.json(products);
-})
- */
 
 //mongo
 router.get('/', async(req, res) => {
@@ -44,9 +38,10 @@ async (req,res,next)=> {
 
     await uploadFile(imagen);
     const arrayProductDB = Product.create(datos)
-    res.json(arrayProductDB);
+    //res.json(arrayProductDB);
 
-    res.json({message: 'archivo subido'})
+    //res.json({message: 'archivo subido'})
+
   }
     catch(e){
       next(e)
@@ -60,7 +55,10 @@ router.delete('/:id',schemaHandler(getProductSchema, 'params'), async (req, res,
     const { id } = req.params;
     const encontrar = await Product.findById(id);
     const product = await Product.findByIdAndDelete(id);
-    //await deleteFile(####);
+    const keyFront = req.body.key
+    console.log(keyFront);
+    console.log(`${keyFront}`);
+    await deleteFile(keyFront);
     res.json(id)
   } catch(e){
     next(e)
@@ -74,18 +72,6 @@ router.get('/files/:fileName', async (req,res)=> {
 
   res.json({message: 'archivo recibido'})
 })
-
-router.get('/:id', schemaHandler(getProductSchema, 'params'), async (req, res, next) => {
-  try {
-    const { id } = req.params;
-    const product = await service.findOne(id)
-    res.json(product);
-
-  } catch (err) {
-    next(err)
-  }
-}
-);
 
 router.get('/:id', schemaHandler(getProductSchema, 'params'), async (req, res, next) => {
   try {
@@ -137,10 +123,5 @@ async (req, res) => {
   }
 
   })
-
-
-
-
-
 
 module.exports = router;

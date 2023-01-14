@@ -1,4 +1,4 @@
-const { S3Client, PutObjectCommand, GetObjectAclCommand, GetObjectCommand, DeleteObjectsCommand } = require('@aws-sdk/client-s3')
+const { S3Client, PutObjectCommand, GetObjectAclCommand, GetObjectCommand, DeleteObjectCommand } = require('@aws-sdk/client-s3')
 const  fs  = require('fs')
 const { config } = require('../config/config');
 
@@ -19,34 +19,32 @@ const clientS3 = new S3Client({
 
 //subir archivo
 async function uploadFile(file){
-    console.log('iniciando upload');
     const stream = fs.createReadStream(file.tempFilePath)
-    console.log('stream creado');
     const uploadParams = {
         Bucket: bucketName,
         Key: `dibujos/${file.name}`,
         Body: stream
     }
-    console.log('parametros creados');
+
     const command = new PutObjectCommand(uploadParams)
-    console.log(uploadParams);
     const result = await clientS3.send(command)
-    console.log('comando enviado');
-    console.log(result);
+    console.log('archivo subido');
+
 }
 
 //eliminar archivo
 
-async function deleteFile(objectName){
-
+async function deleteFile(nameObject){
+  console.log('iniciando funcion delete');
   const deleteParams = {
       Bucket: bucketName,
-      Key: objectName,
-
+      Key: nameObject,
   }
-  const command = new DeleteObjectsCommand(deleteParams)
-  const result = await clientS3.send(command)
-  console.log(result);
+  console.log('iniciando funcion delete');
+  const commandDelete = new DeleteObjectCommand(deleteParams)
+  console.log('comando creado');
+  const result = await clientS3.send(commandDelete)
+  console.log("comando enviado");
 }
 
 //obtener un solo archivo
