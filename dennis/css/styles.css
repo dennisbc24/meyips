@@ -174,12 +174,18 @@ main {
 	color: #17141b;
 	font-family: "Roboto", sans-serif;
 }
-.articulos__container h1 {
-	font-family: "Baloo Bhaina 2";
+.articulos__container h2 {
+	font-family:'Lato', sans-serif;
 	font-style: normal;
-	font-size: 1.2rem;
+	font-size: 1.5rem;
 	padding: 0 5px;
 }
+
+.articulos__container h1 {
+  text-transform: uppercase;
+  color: #343232;
+}
+
 .articulos__container .calltoaction {
 	height: auto;
 	display: flex;

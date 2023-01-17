@@ -48,12 +48,12 @@ function traer(categoryProduct){
 					imagen.src = elemento.imageUrl;
 					const detalles = document.createElement('div');
 					detalles.className = 'detalles'
-					const title = document.createElement('p');
+					const title = document.createElement('h1');
 						const tituloProduct = elemento.name;
 					title.textContent = tituloProduct;
-					const price = document.createElement('h1');
+					const price = document.createElement('h2');
 					const priceNumber = elemento.price;
-					price.textContent = `S/${priceNumber}`;
+					price.textContent = `s/${priceNumber}`;
 
 					const caracteristicas = document.createElement('div');
 					caracteristicas.className = 'caracteristicas'
