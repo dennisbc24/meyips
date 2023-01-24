@@ -134,3 +134,14 @@ const botonRoperos = document.getElementById('roperosCategory')
 	  traer("belleza")
 
 	})
+
+//function search
+
+function filterSearch(input, selector) {
+  document.addEventListener('keyup', (e) => {
+    if(e.target.matches(input)){
+      console.log(e.target.value);
+    }
+  })
+}
+
