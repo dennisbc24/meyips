@@ -104,6 +104,11 @@ function traer(categoryProduct){
 
  masonryLayout(document.getElementById('articulos'), document.querySelectorAll('.articulos__container'), 2)
 
+ const botonBuscar = document.getElementById('buscar')
+.addEventListener('click', e => {
+	traer("roperos")
+  })
+
  const botonElectro = document.getElementById('electroCategory')
  .addEventListener('click', e => {
    traer("electro")
@@ -135,6 +140,7 @@ const botonRoperos = document.getElementById('roperosCategory')
 
 	})
 
+<<<<<<< HEAD
 //function search
 
 function filterSearch(input, selector) {
@@ -144,4 +150,7 @@ function filterSearch(input, selector) {
     }
   })
 }
+=======
+
+>>>>>>> 8bc73273750154dcf5ff6b0e97dfdd71de0ca0e1
 
