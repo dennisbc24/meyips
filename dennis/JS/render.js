@@ -140,17 +140,16 @@ const botonRoperos = document.getElementById('roperosCategory')
 
 	})
 
-<<<<<<< HEAD
-//function search
-
-function filterSearch(input, selector) {
+function searcherItems(input, selector){
   document.addEventListener('keyup', (e) => {
     if(e.target.matches(input)){
       console.log(e.target.value);
+      document.querySelectorAll(selector).forEach((ele) => {
+        ele.textContent.toLowerCase().includes(e.target.value)
+        ?ele.classList.remove('filter')
+        :ele.classList.add('filter')
+      }
+      )
     }
   })
 }
-=======
-
->>>>>>> 8bc73273750154dcf5ff6b0e97dfdd71de0ca0e1
-
