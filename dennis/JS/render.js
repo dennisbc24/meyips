@@ -1,5 +1,5 @@
 const telefonoParaContacto = 993862663;
-//const urlRaiz = "http://localhost:8080";
+//const urlRaiz = "https://localhost:8080";
 //const urlRaiz = "http://18.228.203.151:8080";
 const urlRaiz = "https://maxicusco.net";
 //const urlRaiz = "https://dry-plateau-16443.herokuapp.com";
@@ -140,17 +140,4 @@ const botonRoperos = document.getElementById('roperosCategory')
 
 	})
 
-<<<<<<< HEAD
-//function search
-
-function filterSearch(input, selector) {
-  document.addEventListener('keyup', (e) => {
-    if(e.target.matches(input)){
-      console.log(e.target.value);
-    }
-  })
-}
-=======
-
->>>>>>> 8bc73273750154dcf5ff6b0e97dfdd71de0ca0e1
 
