@@ -20,6 +20,19 @@ html(lang="en")
 		section(class="searcher")
 			input(class="buscarInput")
 			button(id="buscar" href="#") buscar
+		nav(class="nav")
+			input(type="checkbox", id="nav__checkbox", class="nav__checkbox")
+			label(for="nav__checkbox", class="nav__toggle")
+				img(src="/icons/menu.png", class="open", alt="open")
+				img(src="/icons/close.png", class="close", alt="close")
+			ul(class="nav__menu")
+				li(class="menu__logo")
+					img(src="/icons/mochila.png", class="close")
+					img(src="/icons/facebook.png", class="close")
+				li
+					a(href="#") Clases
+					a(href="#") blog
+					a(href="#") foro
 		section(class="categorias" )
 			div(class="categorias__card" id="electroCategory")
 				a(href="#")
