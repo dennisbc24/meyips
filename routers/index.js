@@ -1,4 +1,5 @@
 const express = require('express')
+const ejs = require('ejs')
 const homeRouter = require('./homeRouter')
 const postRouter = require('./postRouter')
 const productsRouter = require('./productRouter');
@@ -9,7 +10,9 @@ function routerApi(app)
 {
 		const router = express.Router();
     app.set('views', `${publicPath}/templates`);
-    app.set('view engine', 'pug')
+	app.engine('html', require('ejs').renderFile)
+	app.set('view engine', 'html')
+    //app.set('view engine', 'pug')
     app.use(express.static(publicPath))
     console.log(`${publicPath}/templates`);
 		app.use('/', homeRouter)

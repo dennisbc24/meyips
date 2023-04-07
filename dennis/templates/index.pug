@@ -11,28 +11,22 @@ html(lang="en")
 		link(rel="stylesheet", href="/css/tablet.css", media="screen and (min-width:420px)")
 		title MaxiCusco
 	body
-		header
-			div(class="logo")
-				img(src="/icons/logo2.png", alt="Logo Maxi Cusco")
-				h1 maxi cusco
-			div(class="menu")
-				img(src="/icons/menu.png", alt="Menú")
-		section(class="searcher")
-			input(class="buscarInput")
-			button(id="buscar" href="#") buscar
 		nav(class="nav")
 			input(type="checkbox", id="nav__checkbox", class="nav__checkbox")
 			label(for="nav__checkbox", class="nav__toggle")
 				img(src="/icons/menu.png", class="open", alt="open")
 				img(src="/icons/close.png", class="close", alt="close")
-			ul(class="nav__menu")
-				li(class="menu__logo")
-					img(src="/icons/mochila.png", class="close")
-					img(src="/icons/facebook.png", class="close")
-				li
-					a(href="#") Clases
-					a(href="#") blog
-					a(href="#") foro
+			section(class="menu") 
+				a(class="menu__logo")
+						img(src="/icons/logo2.png", class="menu__logo_1")
+						p(class="menu__logo_2") Maxi Cusco
+				ul(class="nav__menu")
+					li
+						a(href="#") Clases
+					li
+						a(href="#") blog
+					li
+						a(href="#") foro
 		section(class="categorias" )
 			div(class="categorias__card" id="electroCategory")
 				a(href="#")
@@ -58,7 +52,9 @@ html(lang="en")
 				a(href="#")
 					img(src="/icons/belleza.png", alt="Icono de Cuidado")
 				p Belleza
-
+		section(class="searcher")
+			input(class="buscarInput")
+			button(id="buscar" href="#") buscar
 		main
 			
 

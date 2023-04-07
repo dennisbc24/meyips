@@ -15,7 +15,9 @@
   body {
     height: 100vh;
   }
-  
+  .categorias {
+    display: flex;
+  }
   main {
     height: auto;
     display: flex;
@@ -57,4 +59,16 @@
       min-height: 230px;
       max-height: 250px;
     }
+  }
+
+  .nav__toggle{
+    display: none;
+  }
+
+  .nav_menu{
+    flex-direction: row;
+  }
+
+  .nav__menu li {
+    display: block;
   }
