@@ -104,10 +104,12 @@ function traer(categoryProduct){
 
  masonryLayout(document.getElementById('articulos'), document.querySelectorAll('.articulos__container'), 2)
 
- const botonBuscar = document.getElementById('buscar')
+/*  const botonBuscar = document.getElementById('buscar')
 .addEventListener('click', e => {
 	traer("roperos")
-  })
+  }) */
+
+  
 
  const botonElectro = document.getElementById('electroCategory')
  .addEventListener('click', e => {
