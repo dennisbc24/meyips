@@ -1,38 +1,11 @@
-const telefonoParaContacto = 993862663;
+//metodo get desde el frontend
+function traer(categoryProduct){
+	const telefonoParaContacto = 993862663;
 //const urlRaiz = "https://localhost:8080";
 //const urlRaiz = "http://18.228.203.151:8080";
 const urlRaiz = "https://maxicusco.net";
 //const urlRaiz = "https://dry-plateau-16443.herokuapp.com";
-
-
-//https://prueba1dennis.s3.sa-east-1.amazonaws.com/hola.jpeg
-//https://prueba1dennis.s3.sa-east-1.amazonaws.com/licuadora3.jpeg
-
-const url = `${urlRaiz}/api/v1/products`;
-  const masonryLayout = (containerElem,itemsElems,columns) => {
-
-    containerElem.classList.add('masonry-layout', `columns-${columns}`)
-    let columnsElements = []
-
-    for (let i = 1; i <= columns; i++) {
-        let column = document.createElement('div')
-        column.classList.add('masonry-column', `column-${i}`)
-        containerElem.appendChild(column)
-        columnsElements.push(column)
-    }
-
-    for(let m = 0; m < Math.ceil(itemsElems.length / columns); m++){
-        for(let n = 0; n < columns; n++) {
-            let item = itemsElems[m * columns + n]
-            columnsElements[n].appendChild(item)
-            item.classList.add('masonry-item')
-        }
-    }
-  }
-
-
-//metodo get desde el frontend
-function traer(categoryProduct){
+	const url = `${urlRaiz}/api/v1/products`;
   const cajaGrande = document.getElementById('articulos');
   cajaGrande.innerHTML = "";
 	window
@@ -100,16 +73,82 @@ function traer(categoryProduct){
 	})
 }
 
+
+
+//https://prueba1dennis.s3.sa-east-1.amazonaws.com/hola.jpeg
+//https://prueba1dennis.s3.sa-east-1.amazonaws.com/licuadora3.jpeg
+
+
+
+  /* const masonryLayout = (containerElem,itemsElems,columns) => {
+
+    containerElem.classList.add('masonry-layout', `columns-${columns}`)
+    let columnsElements = []
+
+    for (let i = 1; i <= columns; i++) {
+        let column = document.createElement('div')
+        column.classList.add('masonry-column', `column-${i}`)
+        containerElem.appendChild(column)
+        columnsElements.push(column)
+    }
+
+    for(let m = 0; m < Math.ceil(itemsElems.length / columns); m++){
+        for(let n = 0; n < columns; n++) {
+            let item = itemsElems[m * columns + n]
+            columnsElements[n].appendChild(item)
+            item.classList.add('masonry-item')
+        }
+    }
+  } */
+
  traer("electro");
 
- masonryLayout(document.getElementById('articulos'), document.querySelectorAll('.articulos__container'), 2)
+// masonryLayout(document.getElementById('articulos'), document.querySelectorAll('.articulos__container'), 2)
 
 /*  const botonBuscar = document.getElementById('buscar')
 .addEventListener('click', e => {
 	traer("roperos")
   }) */
 
-  
+
+
+
+  const menuElectro = document.getElementById('electroMenu')
+  .addEventListener('click', e => {
+	//location.reload();
+	traer("electro")
+	document.getElementById('boton-menu').checked = false;
+	})  
+	const menuRoperos = document.getElementById('roperosMenu')
+  .addEventListener('click', e => {
+	//location.reload();
+	traer("roperos")
+	document.getElementById('boton-menu').checked = false;
+	})  
+	const menuCocina = document.getElementById('cocinaMenu')
+  .addEventListener('click', e => {
+	//location.reload();
+	traer("cocina")
+	document.getElementById('boton-menu').checked = false;
+	})  
+	const menuTermos = document.getElementById('termosMenu')
+  .addEventListener('click', e => {
+	//location.reload();
+	traer("termos")
+	document.getElementById('boton-menu').checked = false;
+	})  
+	const menuEquipaje = document.getElementById('equipajeMenu')
+  .addEventListener('click', e => {
+	//location.reload();
+	traer("equipaje")
+	document.getElementById('boton-menu').checked = false;
+	})  
+	const menuBelleza = document.getElementById('bellezaMenu')
+  .addEventListener('click', e => {
+	//location.reload();
+	traer("belleza")
+	document.getElementById('boton-menu').checked = false;
+	})  
 
  const botonElectro = document.getElementById('electroCategory')
  .addEventListener('click', e => {
