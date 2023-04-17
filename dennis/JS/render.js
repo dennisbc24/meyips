@@ -1,6 +1,6 @@
 //metodo get desde el frontend
 function traer(categoryProduct){
-	const telefonoParaContacto = 993862663;
+	const telefonoParaContacto = 51980943681;
 //const urlRaiz = "https://localhost:8080";
 //const urlRaiz = "http://18.228.203.151:8080";
 const urlRaiz = "https://maxicusco.net";

@@ -122,7 +122,7 @@ btnUpload.addEventListener('click', async e => {
     await uploadFile(formDataAws);
 
 
-
+    await location.reload()
 });
 
 //metodo delete
@@ -140,6 +140,8 @@ async function deleteCard(id,nameObject) {
   });
   const data = await res.json();
   console.log(data);
+
+  await location.reload()
 }
 
 const boton = document.getElementById('articulos')

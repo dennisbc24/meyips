@@ -30,7 +30,15 @@ body {
     text-transform: uppercase;
     margin-right: 7px;
 }
+.boton-check .boton_open{
+	height: 20px;
+}
+.boton-check .boton_close{
+	display: none;
+	width:  20px;
+}
 header{
+	background: linear-gradient(90.07deg, #4247C7 0.42%, #3A61C5 47.66%, #2DC661 103.07%);
 	height: 35px;
 	padding: 5px 9px 0 6px;
 }
@@ -86,7 +94,12 @@ header ul li a{
 #boton-menu:checked ~ ul{
 	left: 0;
 }
-
+#boton-menu:checked + label .boton_open{
+	display: none;
+}
+#boton-menu:checked + label .boton_close{
+	display: block;
+}
 .searcher{
 	padding: 5px;
 	display: flex;
