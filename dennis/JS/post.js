@@ -122,7 +122,7 @@ btnUpload.addEventListener('click', async e => {
     await uploadFile(formDataAws);
 
 
-    await location.reload()
+    //await location.reload()
 });
 
 //metodo delete
