@@ -184,5 +184,6 @@ $RECYCLE.BIN/
 
 postgres_data
 PGADMIN_FOLDER
+uploads
 
 # End of https://www.toptal.com/developers/gitignore/api/node,windows,linux
