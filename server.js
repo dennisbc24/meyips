@@ -68,11 +68,6 @@ app.use(errorHandler);
 
 const mongoose = require('mongoose');
 
-/* const user = 'dennis_prueba';
-const password = 'xEYFUZVdPUqXvBMG';
-const dbname = 'prouctos';
- */
-
 const user = config.config.dbUser
 const dbname = config.config.dbName
 const password = config.config.dbPassword
