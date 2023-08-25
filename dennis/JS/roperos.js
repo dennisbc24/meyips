@@ -1,9 +1,9 @@
 //metodo get desde el frontend
 function traer(categoryProduct){
-	const telefonoParaContacto = 993862663;
+	const telefonoParaContacto = 51980943681;
 //const urlRaiz = "https://localhost:8080";
 //const urlRaiz = "http://18.228.203.151:8080";
-const urlRaiz = "https://maxicusco.net";
+const urlRaiz = "https://elwayardo.com";
 //const urlRaiz = "https://dry-plateau-16443.herokuapp.com";
 	const url = `${urlRaiz}/api/v1/products`;
   const cajaGrande = document.getElementById('articulos');

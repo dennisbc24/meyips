@@ -4,7 +4,7 @@
     flex-direction: column;
     align-items: center;
     color: white;
-    background: radial-gradient(78.14% 78.14% at 100% 32.09%, #4247C7 64.06%, #2DC661 100%);
+    background: radial-gradient(78.14% 78.14% at 100% 32.09%, #84b6f4 64.06%, #c4dafa 100%);
 }
 
 #post p {
@@ -25,7 +25,7 @@
 }
 .addCarac {
     border-radius: 4px;
-    color: #404dc6;
+    color: #005187;
     box-shadow: 5px 5px 15px rgb(0 0 0 / 50%), -2px -2px 15px rgb(255 255 255 / 25%), -5px -5px 10px rgb(255 255 255 / 25%);
     margin: 7px 0px;
 }
@@ -44,8 +44,8 @@ input {
 }
 
 .finalizar {
-    background-color: #404dc6;
-    border: #6797ed;
+    background-color: #005187;
+    border: #4d82bc;
     color: white;
     margin-top: 5px;
     font-size: 16px;

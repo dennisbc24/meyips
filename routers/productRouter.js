@@ -73,10 +73,11 @@ router.get('/files/:fileName', async (req,res)=> {
   res.json({message: 'archivo recibido'})
 })
 
-router.get('/:id', schemaHandler(getProductSchema, 'params'), async (req, res, next) => {
+router.get('/:name', schemaHandler(getProductSchema, 'params'), async (req, res, next) => {
   try {
-    const { id } = req.params;
-    const product = await service.findOne(id)
+    const { name } = req.params;
+    console.log(name);
+    const product = await service.findOne({name: name})
     res.json(product);
 
   } catch (err) {
