@@ -81,9 +81,9 @@ app.use(errorHandler);
 
 const mongoose = require('mongoose');
 
-const user = config.config.dbUser;
-const dbname = config.config.dbName;
-const password = config.config.dbPassword;
+const user = config.config.dbUser
+const dbname = config.config.dbName
+const password = config.config.dbPassword
 
 const uri = `mongodb+srv://${user}:${password}@cursoplatzi.yir1r.mongodb.net/${dbname}?retryWrites=true&w=majority`;
 
