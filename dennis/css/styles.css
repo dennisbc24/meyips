@@ -32,7 +32,8 @@ header menu img{
 }
 .front h1{
 	color: #E9DEA7;
-	font-size: 28px;
+	font-size: 40px;
+	padding: 19px;
 }
 header img{
 	width: 150px;
@@ -44,24 +45,50 @@ header img{
 	justify-content: space-evenly;
 }
 .card{
+	align-items: center;
+	display: flex;
+	justify-content: right;
 
+}
+.card img{
+	margin-right: -26px;
+    position: relative;
+	    height: 83px;
+    width: 83px;
+    border-radius: 35px;
+}
+.info{
+	margin-right: -5%;
+	min-width: 80%;
+	min-height: 114px;
 	display: flex;
     justify-content: space-evenly;
 	background: rgb(56,86,61);
 	background: linear-gradient(351deg, rgba(56,86,61,1) 0%, rgba(64,105,71,1) 57%, rgba(81,98,83,1) 100%);
 	border-radius: 25px;
 }
-.card img{
-	
-	    height: 52px;
-    width: 52px;
-    border-radius: 23px;
-}
 .price{
 	color: #E9DEA7;
 	font-size: 14px;
+	display: flex;
+    flex-direction: column;
+	align-self: center;
+	padding-left: 33px;
 }
 
+.calltoaction{
+	display: flex;
+    flex-direction: column;
+	align-self: center;
+}
 .calltoaction p{
  color: #F2F2F2;
+ display: flex;
+    flex-direction: column;
+	align-self: center;
+}
+
+.calltoaction button{
+	border-radius: 10px;
+    border: solid #f2f2f2;
 }
