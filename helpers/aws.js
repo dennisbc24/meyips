@@ -22,7 +22,23 @@ async function uploadFile(file){
     const stream = fs.createReadStream(file.tempFilePath)
     const uploadParams = {
         Bucket: bucketName,
-        Key: `dibujos/${file.name}`,
+        Key: `comprar/${file.name}`,
+        Body: stream
+    }
+
+    const command = new PutObjectCommand(uploadParams)
+    const result = await clientS3.send(command)
+    console.log('archivo subido');
+
+}
+
+//subir curso
+
+async function uploadCourse(file){
+    const stream = fs.createReadStream(file.tempFilePath)
+    const uploadParams = {
+        Bucket: bucketName,
+        Key: `cursos/${file.name}`,
         Body: stream
     }
 
@@ -80,6 +96,7 @@ const uploadToBucket = (bucketName,file) => {
 module.exports = {
   //  getBuckets,
     //uploadToBucket,
+    uploadCourse,
     uploadFile,
     getFile,
     deleteFile

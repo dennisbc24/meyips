@@ -4,6 +4,7 @@ const homeRouter = require('./homeRouter')
 const roperosRouter = require('./roperosRouter')
 const cocinaRouter = require('./cocinaRouter')
 const postRouter = require('./postRouter')
+const post_cursos = require('./post_courses_Router')
 const productsRouter = require('./productRouter');
 const usersRouter = require('./userRouter');
 const publicPath = __dirname.replace('routers', 'dennis');
@@ -23,6 +24,7 @@ function routerApi(app)
 		app.use('/api/v1', router)
 				router.use('/', homeRouter);
 				router.use('/post', postRouter);
+				router.use('/post_cursos', post_cursos);
 				router.use('/products', productsRouter);
 				router.use('/users', usersRouter);
 }

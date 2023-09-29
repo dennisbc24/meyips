@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const {uploadFile, getFile, deleteFile} = require('../helpers/aws')
+const {uploadFile, getFile, deleteFile, uploadCourse} = require('../helpers/aws')
 
 //modulo para eliminar archivos de backend
 const { unlink } = require('fs-extra')
@@ -11,7 +11,7 @@ const schemaHandler = require('../middlewares/schema.handler');
 
 const {createProductSchema, getProductSchema, updateProductSchema} = require('../schemas/product.schema')
 
-const Product = require('../modelMongo/product');
+const {Product, Course} = require('../modelMongo/product');
 //con esto estamos trayendo la logica del servicio
 const ProductService = require('../services/product.service');
 const { log } = require('console');
@@ -38,6 +38,28 @@ async (req,res,next)=> {
 
     await uploadFile(imagen);
     const arrayProductDB = Product.create(datos)
+    //res.json(arrayProductDB);
+
+    //res.json({message: 'archivo subido'})
+
+  }
+    catch(e){
+      next(e)
+  }
+
+})
+
+router.post('/courses'
+,schemaHandler(createProductSchema, 'datos')
+,
+async (req,res,next)=> {
+
+  try {
+    const imagen = req.files.file
+    const datos = JSON.parse(req.body.datos)
+
+    await uploadCourse(imagen);
+    const arrayProductDB = Course.create(datos)
     //res.json(arrayProductDB);
 
     //res.json({message: 'archivo subido'})

@@ -3,69 +3,9 @@ const urlRaiz = "http://localhost:8080";
 //const urlRaiz = "https://elwayardo.com";
 
 const url = `${urlRaiz}/api/v1/products`;
-const urlUpload = `${urlRaiz}/api/v1/products/files`;
+const urlUpload = `${urlRaiz}/api/v1/products/courses`;
 
 //metodo get
-function traer(){
-  const cajaGrande = document.getElementById('articulos');
-  cajaGrande.innerHTML = "";
-  window
-  .fetch(url)
-    .then((respuesta)=> respuesta.json())
-    .then((responseJson)=>{
-      const todosLosElementos = [];
-      responseJson.forEach((elemento) => {
-        const container = document.createElement('article');
-        //container.id = elemento.id;
-        const imagen = document.createElement('img');
-          imagen.src = elemento.imageUrl;
-        const detalles = document.createElement('div');
-          detalles.className = 'detalles'
-        const title = document.createElement('p');
-          title.textContent = elemento.name;
-        const price = document.createElement('h1');
-          price.textContent = elemento.price;
-        const caracteristicas = document.createElement('div');
-          caracteristicas.className = 'caracteristicas'
-            const arrayCaracteristicas = elemento.caracteristicas;
-              arrayCaracteristicas.forEach(item => {
-                const itemList = document.createElement('p');
-                itemList.textContent = item;
-                    caracteristicas.append(itemList)
-                  })
-        detalles.append(title,price,caracteristicas);
-        const callToAction = document.createElement('button');
-          callToAction.className = 'calltoaction';
-        const eliminar = document.createElement('button');
-          eliminar.className = 'buttonDelete';
-            eliminar.setAttribute('_urlImage', elemento.imageUrl)
-            eliminar.setAttribute('_id', elemento._id)
-              eliminar.textContent = 'eliminar';
-        const link = document.createElement('a');
-        const wsp = document.createElement('div');
-          wsp.className = 'wsp';
-        const contact = document.createElement('p');
-          contact.textContent = 'Contactar';
-        const icon = document.createElement('img');
-          icon.src = '/icons/whatsapp3.png';
-            icon.alt = 'icono de Whatsapp'
-          wsp.append(contact,icon);
-          link.append(wsp);
-          callToAction.append(link);
-          container.append(imagen, detalles, callToAction, eliminar);
-            container.className = 'articulos__container';
-              container.classList.add = 'column-1';
-
-      todosLosElementos.push(container);
-
-      cajaGrande.append(...todosLosElementos);
-
-      });
-    })
-}
-
-//renderizacion
-traer();
 
 //metodo post
 
@@ -98,7 +38,7 @@ btnUpload.addEventListener('click', async e => {
 
     const file = document.querySelector('#file').files[0];
 
-    const urlArmada = `https://meyips.s3.sa-east-1.amazonaws.com/comprar/${file.name}`
+    const urlArmada = `https://meyips.s3.sa-east-1.amazonaws.com/cursos/${file.name}`
 
     const productoNuevo = {
       name: nombre.value,
@@ -174,7 +114,3 @@ const agregar = document.getElementById('addCarac')
   e.preventDefault();
 
 });
-
-
-
-

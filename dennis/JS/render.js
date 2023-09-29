@@ -15,19 +15,45 @@ const urlRaiz = "http://localhost:8080";
 			const todosLosElementos = [];
 			responseJson.forEach((elemento) => {
 				if (elemento.category == categoryProduct) {
-					const container = document.createElement('article');
-					//container.id = elemento.id;
+					const card = document.createElement('div')
+					card.className = 'card'
+
 					const imagen = document.createElement('img');
 					imagen.src = elemento.imageUrl;
-					const detalles = document.createElement('div');
-					detalles.className = 'detalles'
-					const title = document.createElement('h1');
-						const tituloProduct = elemento.name;
+
+					const info = document.createElement('div')
+					info.className = 'info'
+
+					const price_box = document.createElement('div')
+					price_box.className = 'price'
+
+					const title = document.createElement('h3');
+					const tituloProduct = elemento.name;
 					title.textContent = tituloProduct;
-					const price = document.createElement('h2');
+					
+					const price = document.createElement('p');
 					const priceNumber = elemento.price;
 					price.textContent = `s/${priceNumber}`;
 
+					const calltoaction = document.createElement('div')
+					calltoaction.className = 'calltoaction'
+
+					const mas_info = document.createElement('p')
+					mas_info.textContent = 'ver más información';
+
+					const boton_info = document.createElement('button')
+					boton_info.textContent = 'Cotizar'
+					
+					price_box.append(title, price)
+					calltoaction.append(mas_info, boton_info)
+
+					info.append(price_box, calltoaction)
+
+					card.append(imagen, info)
+									
+					/* const detalles = document.createElement('div');
+					detalles.className = 'detalles'
+					
 					const caracteristicas = document.createElement('div');
 					caracteristicas.className = 'caracteristicas'
 					const arrayCaracteristicas = elemento.caracteristicas;
@@ -61,8 +87,8 @@ const urlRaiz = "http://localhost:8080";
 					callToAction.append(link);
 					container.append(imagen, detalles, callToAction);
 					container.className = 'articulos__container';
-					container.classList.add = 'column-1';
-					todosLosElementos.push(container);
+					container.classList.add = 'column-1';*/
+					todosLosElementos.push(card); 
 
 					const cajaGrande = document.getElementById('items');
 
@@ -73,7 +99,7 @@ const urlRaiz = "http://localhost:8080";
 }
 
 
- traer("electro");
+ traer("plantas");
 
 
   const menuElectro = document.getElementById('electroMenu')

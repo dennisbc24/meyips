@@ -46,6 +46,7 @@ header img{
 }
 .card{
 	align-items: center;
+	margin-bottom: 5px;
 	display: flex;
 	justify-content: right;
 
