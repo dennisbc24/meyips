@@ -1,12 +1,12 @@
 //metodo get desde el frontend
 function traer(categoryProduct){
 	const telefonoParaContacto = 51980943681;
-//const urlRaiz = "https://localhost:8080";
+const urlRaiz = "http://localhost:8080";
 //const urlRaiz = "http://18.228.203.151:8080";
-const urlRaiz = "https://elwayardo.com";
+//const urlRaiz = "https://elwayardo.com";
 //const urlRaiz = "https://dry-plateau-16443.herokuapp.com";
 	const url = `${urlRaiz}/api/v1/products`;
-  const cajaGrande = document.getElementById('articulos');
+  const cajaGrande = document.getElementById('items');
   cajaGrande.innerHTML = "";
 	window
 	.fetch(url)
@@ -64,53 +64,16 @@ const urlRaiz = "https://elwayardo.com";
 					container.classList.add = 'column-1';
 					todosLosElementos.push(container);
 
-					const cajaGrande = document.getElementById('articulos');
+					const cajaGrande = document.getElementById('items');
 
 					cajaGrande.append(...todosLosElementos);
 					}
-          //masonryLayout(document.getElementById('articulos'), document.querySelectorAll('.articulos__container'), 2)
 			});
 	})
 }
 
 
-
-//https://prueba1dennis.s3.sa-east-1.amazonaws.com/hola.jpeg
-//https://prueba1dennis.s3.sa-east-1.amazonaws.com/licuadora3.jpeg
-
-
-
-  /* const masonryLayout = (containerElem,itemsElems,columns) => {
-
-    containerElem.classList.add('masonry-layout', `columns-${columns}`)
-    let columnsElements = []
-
-    for (let i = 1; i <= columns; i++) {
-        let column = document.createElement('div')
-        column.classList.add('masonry-column', `column-${i}`)
-        containerElem.appendChild(column)
-        columnsElements.push(column)
-    }
-
-    for(let m = 0; m < Math.ceil(itemsElems.length / columns); m++){
-        for(let n = 0; n < columns; n++) {
-            let item = itemsElems[m * columns + n]
-            columnsElements[n].appendChild(item)
-            item.classList.add('masonry-item')
-        }
-    }
-  } */
-
  traer("electro");
-
-// masonryLayout(document.getElementById('articulos'), document.querySelectorAll('.articulos__container'), 2)
-
-/*  const botonBuscar = document.getElementById('buscar')
-.addEventListener('click', e => {
-	traer("roperos")
-  }) */
-
-
 
 
   const menuElectro = document.getElementById('electroMenu')

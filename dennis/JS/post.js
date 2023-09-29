@@ -98,7 +98,7 @@ btnUpload.addEventListener('click', async e => {
 
     const file = document.querySelector('#file').files[0];
 
-    const urlArmada = `https://prueba1dennis.s3.sa-east-1.amazonaws.com/dibujos/${file.name}`
+    const urlArmada = `https://meyips.s3.sa-east-1.amazonaws.com/dibujos/${file.name}`
 
     const productoNuevo = {
       name: nombre.value,
