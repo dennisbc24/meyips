@@ -10,7 +10,15 @@ const productSchema = new Schema({
     category: String,
     })
 
+const courseSchema = new Schema({
+    name: String,
+    price: Number,
+    caracteristicas: Array,
+    imageUrl: String,
+    category: String,
+    })
+
 const Product = mongoose.model('items', productSchema);
-const Course = mongoose.model('courses', productSchema);
+const Course = mongoose.model('courses', courseSchema);
 
 module.exports = {Product, Course}

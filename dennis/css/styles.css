@@ -44,6 +44,7 @@ header img{
 	display: flex;
 	justify-content: space-evenly;
 }
+
 .card{
 	align-items: center;
 	margin-bottom: 5px;
