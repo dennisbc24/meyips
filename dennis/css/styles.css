@@ -13,7 +13,7 @@ html {
 header{
 	background: rgb(56,86,61);
 	background: linear-gradient(351deg, rgba(56,86,61,1) 0%, rgba(64,105,71,1) 57%, rgba(81,98,83,1) 100%);
-	
+	border-bottom-right-radius: 39px
 
 }
 
@@ -38,11 +38,19 @@ header menu img{
 header img{
 	width: 150px;
 	border-radius: 23px;
+	margin: 0 12px 4px 0;
 }
-
 .categories{
+	margin: 8px 0 8px 0;
 	display: flex;
 	justify-content: space-evenly;
+}
+.categories a{
+	
+	text-decoration: none;
+    color: black;
+    font-size: 2.2rem;
+    font-weight: 700;
 }
 
 .card{
@@ -71,14 +79,23 @@ header img{
 }
 .price{
 	color: #E9DEA7;
-	font-size: 14px;
+	padding-right: 2rem;
 	display: flex;
     flex-direction: column;
 	align-self: center;
 	padding-left: 33px;
 }
 
+.price h3{
+	font-size: 18px;
+}
+
+.price p{
+	margin-top: 1rem;
+	font-size: 18px;
+}
 .calltoaction{
+	padding-right: 4.5rem;
 	display: flex;
     flex-direction: column;
 	align-self: center;
