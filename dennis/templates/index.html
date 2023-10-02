@@ -11,7 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
       rel="stylesheet"
     />
- <!--    <link
+    <!--    <link
       rel="stylesheet"
       href="/css/tablet.css"
       media="screen and (min-width:420px)"
@@ -32,11 +32,18 @@
       <div id="renderComprar"><a href="#">Comprar</a></div>
       <div id="renderCursos"><a href="#">Cursos</a></div>
       <div id="renderBlog"><a href="#">Blog</a></div>
-
-      
-      
     </section>
-    <section class="items">
+
+    <div id="tik">
+      <div class="sk-tiktok-feed" data-embed-id="202833"></div>
+    <script
+      src="https://widgets.sociablekit.com/tiktok-feed/widget.js"
+      async
+      defer
+    ></script>
+    </div>
+
+    <section class="items" id="items0">
       <div class="card">
         <img src="/img/girasol.jpg" alt="" />
         <div class="info">
@@ -45,7 +52,29 @@
             <p>S/.25.00</p>
           </div>
           <div class="calltoaction">
-            <p>ver más información</p>
+
+            <input type="checkbox" name="" id="boton-menu" class="boton-menu">
+            <label for="boton-menu" class="boton-check">
+              
+              <ul class="lista">
+                <li class="carac">Aqui ira una caracteristica para mostrar</li>
+                <li class="carac">Aqui ira una carac</li>
+                <li class="carac">Aqui ira una caracteristica para mostrar</li>
+                <li class="carac">Aqui ira una carac</li>
+                <li class="carac">Aqui ira una caracteristica para mostrar</li>
+                <li class="carac">Aqui ira una carac</li>
+              </ul>
+              
+              <h2 class="boton_open">ver mas informacion</h2>
+              <h2 class="boton_close">cerrar</h2>
+              
+              
+            </label>
+
+
+
+
+           
             <button>Cotizar</button>
           </div>
         </div>
@@ -54,6 +83,10 @@
       <div class="card"></div>
     </section>
     <section id="items"></section>
+
+    
+
+
     <script src="/JS/render.js"></script>
   </body>
 </html>

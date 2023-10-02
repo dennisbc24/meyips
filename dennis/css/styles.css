@@ -62,8 +62,8 @@ header img{
 }
 .card img{
 	margin-right: -26px;
-    position: relative;
-	    height: 83px;
+    
+height: 83px;
     width: 83px;
     border-radius: 35px;
 }
@@ -79,7 +79,7 @@ header img{
 }
 .price{
 	color: #E9DEA7;
-	padding-right: 2rem;
+	
 	display: flex;
     flex-direction: column;
 	align-self: center;
@@ -88,6 +88,7 @@ header img{
 
 .price h3{
 	font-size: 18px;
+	max-width: 50%;
 }
 
 .price p{
@@ -100,14 +101,50 @@ header img{
     flex-direction: column;
 	align-self: center;
 }
-.calltoaction p{
- color: #F2F2F2;
- display: flex;
-    flex-direction: column;
-	align-self: center;
-}
+
 
 .calltoaction button{
 	border-radius: 10px;
     border: solid #f2f2f2;
+}
+
+.lista{
+	
+	font-size: 1.5rem;
+	color: #f2f2f2;
+	
+}
+ul .carac{
+	list-style: none;
+	display: none;
+}
+
+#tik{
+	display: none;
+}
+#boton-menu{
+	display: none;
+}
+
+.boton_open{
+	display: block;
+	color: #F2F2F2;
+}
+.boton_close{
+	display: none;
+}
+
+#boton-menu:checked + label .carac{
+	display: block;
+	
+}
+#boton-menu:checked + label .boton_close{
+	display: block;
+}
+#boton-menu:checked + label .boton_open{
+	display: none;
+}
+
+#boton-menu:checked + label .boton-check{
+	position: absolute;
 }

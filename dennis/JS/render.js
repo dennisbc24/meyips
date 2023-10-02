@@ -1,3 +1,17 @@
+var botonCargar = document.getElementById('renderBlog');
+var elementoOculto = document.getElementById('tik');
+
+// Funcion para mostrar perfil de tiktok
+botonCargar.addEventListener('click', function() {
+  const cajaGrande = document.getElementById('items');
+  cajaGrande.innerHTML = '';
+  // Muestra el elemento oculto cambiando su estilo
+  elementoOculto.style.display = 'block';
+});
+
+
+
+
 //metodo get desde el frontend
 function traer(eyelash, category) {
   const telefonoParaContacto = 51980943681;
@@ -5,6 +19,10 @@ function traer(eyelash, category) {
   //const urlRaiz = "http://18.228.203.151:8080";
   //const urlRaiz = "https://elwayardo.com";
   //const urlRaiz = "https://dry-plateau-16443.herokuapp.com";
+
+  elementoOculto.style.display = 'none';
+  
+
   const url = `${urlRaiz}/api/v1/${eyelash}`;
   const cajaGrande = document.getElementById('items');
   cajaGrande.innerHTML = '';
@@ -15,6 +33,9 @@ function traer(eyelash, category) {
       const todosLosElementos = [];
       responseJson.forEach((elemento) => {
         if (elemento.category == category) {
+
+          
+
           const card = document.createElement('div');
           card.className = 'card';
 
@@ -40,6 +61,7 @@ function traer(eyelash, category) {
 
           const mas_info = document.createElement('p');
           mas_info.textContent = 'ver más información';
+          mas_info.setAttribute('_id', elemento._id)
 
           const boton_info = document.createElement('button');
           boton_info.textContent = 'Cotizar';
@@ -158,3 +180,38 @@ function filterSearch(input, selector) {
     }
   });
 }
+
+
+// Obtén referencias a los elementos
+
+
+
+
+
+
+
+var botonMostrar = document.getElementById('mostrarId');
+
+var botonCerrar = document.getElementById('botonCerrar');
+
+// Agrega un controlador de eventos para mostrar el div cuando se presiona el botón
+const boton = document.getElementById('items0').addEventListener('click', e => {
+
+if (e.target.classList.contains('mostrar')) {
+  const getIdMongoElement = e.target.previousElementSibling;
+
+  getIdMongoElement.style.display = 'block';
+}
+
+  
+});
+
+// Agrega un controlador de eventos para cerrar el div cuando se presiona el botón de cerrar
+/* botonCerrar.addEventListener('click', function() {
+  divSobreponible.style.display = 'none';
+}); */
+
+
+
+
+
