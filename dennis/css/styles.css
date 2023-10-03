@@ -1,3 +1,14 @@
+:root{
+	--color-first: #69CC5B;
+	--color-second: #3F7A37;
+	--color-third: #80FA70;
+	--color-fourth: #1E3B1A;
+	--color-fiveth: #73E065;
+
+
+	--dark-font: black;
+	--ligth-font: #ffff;
+}
 
 * {
 	 margin: 0;
@@ -7,6 +18,7 @@
 
 html {
 	font-size: 62.5%;
+	
 	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
@@ -15,13 +27,14 @@ html {
 
 header{
 	background: rgb(56,86,61);
-	background: linear-gradient(351deg, rgba(56,86,61,1) 0%, rgba(64,105,71,1) 57%, rgba(81,98,83,1) 100%);
+	background: linear-gradient(351deg, var(--color-fourth) 0%, var(--color-second) 57%, var(--color-first) 100%);
 	border-bottom-right-radius: 39px
 
 }
 
 #hamburger{
 	height: 3.5vh;
+	background-color: var(--dark-font);
 }
 #hamburger ul{
 	display: flex;
@@ -32,9 +45,9 @@ header{
 	position: fixed;
 	width: 100%;
     height: 100vh;
-    background: radial-gradient(78.14% 78.14% at 100% 32.09%, rgba(56,86,61,1) 64.06%, rgba(64,105,71,1) 100%);
+	background: linear-gradient(351deg, var(--color-fourth) 0%, var(--color-second) 57%, var(--color-first) 100%);
     left: -100%;
-    top: 38px;
+    top: 4%;
 	transition: .5s;
 }
 
@@ -100,11 +113,17 @@ header{
 
 .front{
 	display: flex;
-	align-items: flex-end;
+	
 	padding: 15px;
 }
+.front .nombre{
+
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .front h1{
-	color: #E9DEA7;
+	color: var(--ligth-font);
 	font-size: 40px;
 	padding: 19px;
 }
@@ -117,13 +136,14 @@ header img{
 .categories{
 	margin: 8px 0 8px 0;
 	display: flex;
+	margin: 14px 0;
 	justify-content: space-evenly;
 }
 
 .categories .activeTab{
 	border: solid #f2f2f2;
 	text-decoration: none;
-    color: rgb(54, 54, 54);
+    color: var(--dark-font);
     font-size: 2.2rem;
     font-weight: 700;
 	box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5), -2px -2px 15px rgba(255, 255, 255, 0.25), -5px -5px 10px rgba(255, 255, 255, 0.25);
@@ -145,29 +165,30 @@ header img{
 
 }
 .card img{
-	margin-right: -26px;
+	
+	margin-left: 5px;
     
 height: 83px;
     width: 83px;
     border-radius: 35px;
 }
-.info{
+.info{align-items: center;
 	margin-right: -5%;
-	min-width: 80%;
+	max-width: 94%;
 	min-height: 114px;
 	display: flex;
     justify-content: space-evenly;
-	background: rgb(56,86,61);
-	background: linear-gradient(351deg, rgba(56,86,61,1) 0%, rgba(64,105,71,1) 57%, rgba(81,98,83,1) 100%);
+	
+	background: linear-gradient(351deg, var(--color-fourth) 0%, var(--color-second) 57%, var(--color-first) 100%);
 	border-radius: 25px;
 }
 .price{
-	color: #E9DEA7;
-	
+	color: var(--ligth-font);
 	display: flex;
     flex-direction: column;
 	align-self: center;
 	padding-left: 33px;
+	margin-right: -21px;
 }
 
 .price h3{
@@ -188,10 +209,10 @@ height: 83px;
 
 
 .calltoaction button{
-	color: #F2F2F2;
-	border: solid rgb(54, 54, 54);
+	color: var(--ligth-font);
+	border: solid var(--dark-font);
 	border-radius: 10px;
-	background-color:rgb(54, 54, 54) ;
+	background-color:var(--dark-font) ;
     /* border: solid #f2f2f2; */
 	box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5), -2px -2px 15px rgba(255, 255, 255, 0.25), -5px -5px 10px rgba(255, 255, 255, 0.25);
 	margin-top: 20px;
@@ -201,9 +222,9 @@ height: 83px;
 	box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5), -2px -2px 15px rgba(255, 255, 255, 0.25), -5px -5px 10px rgba(255, 255, 255, 0.25);
 	border-radius: 11px;
 	font-size: 1.5rem;
-	background-color: #f2f2f2;
+	background-color: var(--ligth-font);
 	margin-top: 15px;
-    color: #49654e;
+    color: var(--color-fourth);
 	
 }
 ul .carac{
@@ -222,12 +243,12 @@ ul .carac{
 
 .boton_open{
 	display: block;
-	color: #F2F2F2;
+	color: var(--ligth-font);
 	font-size: 1.3rem;
 }
 .boton_close{
 	display: none;
-	color: #F2F2F2;
+	color: var(--ligth-font);
 	text-align: center;
 	font-size: 1.3rem;
 }
