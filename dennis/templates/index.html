@@ -20,18 +20,41 @@
   </head>
   <body>
     <header>
-      <menu>
-        <img src="/icons/menu.png" alt="" />
+      <menu id="hamburger">
+        <input type="checkbox" name="" id="bot-menu" class="bot-menu">
+      <label for="bot-menu" class="bot-check">
+        <p>menu</p>
+        <img src="../icons/menu.png" alt="" class="bot_open">
+        <img src="../icons/close.png" alt="" class="bot_close">
+      </label>
+      
+      <!-- <div class="caja-logo">
+        <img src="../icons/repartidor.png" alt="" class="logito">
+        <a href="#" class="main_title">El Wayardo</a>
+      </div> -->
+      
+      <ul class="caja_pestañas">
+        <li id="plantasMenu" class="pestaña"><a href="#">Plantas</a></li>
+        <li id="cursosMenu"class="pestaña"><a href="#">Cursos</a></li>
+        <li id="socialMenu" class="pestaña"><a href="#">Social</a></li>
+        
+
+      </ul>
+        <!-- <img src="/icons/menu.png" alt="" /> -->
       </menu>
       <section class="front">
-        <h1>Jardines Meyips</h1>
+        <div>
+          <img src="/icons/logo.png" alt="logo">
+          <h1>Jardines Meyips</h1>
+        </div>
+        
         <img src="/img/planta.jpg" alt="main image" />
       </section>
     </header>
     <section class="categories">
-      <div id="renderComprar"><a href="#">Comprar</a></div>
-      <div id="renderCursos"><a href="#">Cursos</a></div>
-      <div id="renderBlog"><a href="#">Blog</a></div>
+      <div id="renderComprar"><a href="#" class="activeTab plantasTab tab">Plantas</a></div>
+      <div id="renderCursos" ><a href="#" class="inactiveTab cursosTab tab">Cursos</a></div>
+      <div id="renderBlog" ><a href="#" class="inactiveTab blogTab tab">Social</a></div>
     </section>
 
     <div id="tik">
@@ -65,8 +88,8 @@
                 <li class="carac">Aqui ira una carac</li>
               </ul>
               
-              <h2 class="boton_open">ver mas informacion</h2>
-              <h2 class="boton_close">cerrar</h2>
+              <p class="boton_open">Ver más información</p>
+              <p class="boton_close">cerrar</p>
               
               
             </label>
