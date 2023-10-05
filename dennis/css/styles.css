@@ -126,6 +126,7 @@ header{
 	color: var(--ligth-font);
 	font-size: 40px;
 	padding: 19px;
+	text-align: center;
 }
 header img{
 	box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5), -2px -2px 15px rgba(255, 255, 255, 0.25), -5px -5px 10px rgba(255, 255, 255, 0.25);
@@ -227,17 +228,20 @@ height: 83px;
     color: var(--color-fourth);
 	
 }
+ul{
+	display: none;
+}
 ul .carac{
 	
 	margin: 8px 8px 0 8px;
 	list-style: none;
-	display: none;
+	
 }
 
 #tik{
 	display: none;
 }
-#boton-menu{
+.boton-menu{
 	display: none;
 }
 
@@ -253,18 +257,18 @@ ul .carac{
 	font-size: 1.3rem;
 }
 
-#boton-menu:checked + label .carac{
+input:checked + label ul{
 	display: block;
 	
 }
-#boton-menu:checked + label .boton_close{
+input:checked + label .boton_close{
 	display: block;
 }
-#boton-menu:checked + label .boton_open{
+input:checked + label .boton_open{
 	display: none;
 }
 
-#boton-menu:checked + label .boton-check{
+input:checked + label .boton-check{
 	position: absolute;
 }
 

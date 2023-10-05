@@ -46,23 +46,54 @@ function traer(eyelash, category) {
           const calltoaction = document.createElement('div');
           calltoaction.className = 'calltoaction';
 
-          const mas_info = document.createElement('p');
-          mas_info.textContent = 'ver más información';
-          mas_info.setAttribute('_id', elemento._id);
+        const checkbox = document.createElement('input')
+        checkbox.type = 'checkbox'
+        checkbox.className = 'boton-menu'
+        checkbox.id = elemento._id
+        checkbox.ne
 
-          const boton_info = document.createElement('button');
-          boton_info.textContent = 'Cotizar';
+        const label = document.createElement('label')
+        label.setAttribute('for', elemento._id);
+        label.className = 'boton-check' 
+
+        const ul = document.createElement('ul')
+        ul.className = 'lista'
+
+
+
+        const arrayCaracteristicas = elemento.caracteristicas;
+					arrayCaracteristicas.forEach(item => {
+						const itemList = document.createElement('li');
+            itemList.className = 'carac'
+						itemList.textContent = item;
+						ul.append(itemList)
+							})
+
+        
+
+        const open = document.createElement('p')
+        open.className = 'boton_open'
+        open.textContent = 'Ver más información'
+        const close = document.createElement('p')
+        close.className = 'boton_close'
+        close.textContent = 'Cerrar'
+        const boton_info = document.createElement('button');
+        boton_info.textContent = 'Cotizar';
+
+              label.append(ul,open,close)
+
+              calltoaction.append(checkbox,label,boton_info);
 
           price_box.append(title, price);
-          calltoaction.append(mas_info, boton_info);
+          
 
-          info.append(price_box, calltoaction);
+          info.append(imagen, price_box, calltoaction);
 
-          card.append(imagen, info);
+          card.append(info);
 
           todosLosElementos.push(card);
 
-          const cajaGrande = document.getElementById('items');
+          
 
           cajaGrande.append(...todosLosElementos);
         }
@@ -177,4 +208,5 @@ const eyelashCourses2 = document
   elementoOculto.style.display = 'block';
   document.getElementById('bot-menu').checked = false;
 });
+
 
