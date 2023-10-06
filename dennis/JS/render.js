@@ -5,7 +5,7 @@ var elementoOculto = document.getElementById('tik');
 
 //metodo get desde el frontend
 function traer(eyelash, category) {
-  const telefonoParaContacto = 51980943681;
+  const telefonoParaContacto = 51910457740;
   const urlRaiz = 'http://localhost:8080';
   //const urlRaiz = "http://18.228.203.151:8080";
   //const urlRaiz = "https://elwayardo.com";
@@ -78,8 +78,20 @@ function traer(eyelash, category) {
         close.className = 'boton_close'
         close.textContent = 'Cerrar'
         const boton_info = document.createElement('button');
-        boton_info.textContent = 'Cotizar';
+        
+        const link = document.createElement('a')
+        link.textContent = 'Cotizar'
 
+        const api = `https://api.whatsapp.com/send/?phone=${telefonoParaContacto}&text=`
+        const texto = `Hola estoy interesado en el producto: ${tituloProduct}. Necesito más información.`;
+        const espacio = " ";
+        const newArray = texto.split(espacio);
+        newString = newArray.join("%20");
+        const final = `${api}${newString}`;
+
+      link.href = final;
+
+              boton_info.append(link)
               label.append(ul,open,close)
 
               calltoaction.append(checkbox,label,boton_info);

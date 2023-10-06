@@ -210,13 +210,18 @@ height: 83px;
 
 
 .calltoaction button{
-	color: var(--ligth-font);
+	
 	border: solid var(--dark-font);
 	border-radius: 10px;
 	background-color:var(--dark-font) ;
     /* border: solid #f2f2f2; */
 	box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5), -2px -2px 15px rgba(255, 255, 255, 0.25), -5px -5px 10px rgba(255, 255, 255, 0.25);
 	margin-top: 20px;
+}
+
+.calltoaction button a{
+	color: var(--ligth-font);
+	text-decoration: none;
 }
 
 .lista{
