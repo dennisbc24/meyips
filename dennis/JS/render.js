@@ -7,7 +7,7 @@ var elementoOculto = document.getElementById('tik');
 function traer(eyelash, category) {
   const telefonoParaContacto = 51910457740;
   //const urlRaiz = 'http://localhost:8080';
-  const urlRaiz = 'https://inventario.elwayardo.com/api/v1/products'
+  const urlRaiz = 'https://inventario.elwayardo.com'
   //const urlRaiz = "http://18.228.203.151:8080";
   //const urlRaiz = "https://elwayardo.com";
   //const urlRaiz = "https://dry-plateau-16443.herokuapp.com";
